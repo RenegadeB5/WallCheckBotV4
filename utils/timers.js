@@ -1,8 +1,12 @@
 class timers {
-
-    async initialize() {
-        await this.client.connect();
-        this.db = this.client.db(this._databaseName);
+	
+	constructor(client = global.client) {
+		this.client = client;
+        this.initialized = false;
+		this.checkwall = this.client.channels.find("name", "checkwall");
+    }
+	
+	async initialize() {
         this.initialized = true;
     }
 
@@ -10,77 +14,45 @@ class timers {
         return this.initialized;
     }
 
-    async close() {
-        await this.client.close();
-        this.db = null;
+    async counter() {
+        global.minutes += 1
     }
-
-    async getGuilds() {
-        let guilds = await this.db.collection("guilds");
-        return await guilds.find().toArray();
-    }
-
-    async getGuild(guild) {
-        let guilds = await this.db.collection("guilds");
-        return await guilds.find({ id: guild.id }).toArray();
-    }
-
-    async getOrAddGuild(guild) {
-        let guildData = await this.getGuild(guild);
-        if (Array.isArray(guildData) && guildData.length < 1)
-            await this.addGuild(guild);
-        let data = await this.getGuild(guild);
-        return data[0];
-    }
-
-    async addGuild(guild) {
-        let guilds = await this.db.collection("guilds");
-        return await guilds.insertOne({
-            id: guild.id,
-            prefix: "_",
-            permissions: [],
-            linkdetection: { enabled: false },
-            nadekoconnector: { enabled: false },
-            beta: false
-        });
-    }
-
-    async removeGuild(guild) {
-        let guilds = await this.db.collection("guilds");
-        if (typeof guild.id === "undefined") return;
-        return await guilds.deleteMany({ id: guild.id });
-    }
-
-    async removeAllGuilds() {
-        let guilds = await this.db.collection("guilds");
-        return await guilds.deleteMany({});
-    }
-
-    async editGuild(guild, settings = {}, removeSettings = false) {
-        let guilds = await this.db.collection("guilds");
-        if (typeof removeSettings !== "boolean") return;
-        if (removeSettings)
-            return await guilds.updateOne({ id: guild.id }, { $unset: settings });
-        return await guilds.updateOne({ id: guild.id }, { $set: settings });
-    }
-    async insertLink(insert) {
-        let links = await this.db.collection("partylinks");
-        return await links.insertOne(insert);
-    }
-    async fetchLink(query) {
-        let links = await this.db.collection("partylinks");
-        return await links.find(query).sort({_id:-1}).limit(1).toArray();
-        
-    }
-    async remove1Link() {
-        let links = await this.db.collection("partylinks");
-        return await links.findOneAndDelete({});
-    }
+	
+	async start() {
+		global.minutes = 0;
+		global.counter = setInterval(this.client.timers.counter(), 60000);
+		global.notify = setInterval(this.client.timers.notify(), 60000);
+	}
+	
+	async stop() {
+		console.log('cleared');
+		clearInterval(global.counter);
+		clearInterval(global.notify);
+		clearInterval(global.weewoo);
+	}
     
-    async purgeLinks() {
-        let links = await this.db.collection("partylinks");
-        links.deleteMany({});
-    }
-}
+	async notify() {  
+		if (global.minutes >= 2) {
+			if (global.minutes >= 10) {
+				var tag = '@everyone'
+			}
+			else {
+				var tag = '@here'
+			}
+			this.client.user.setStatus('idle');
+			this.client.user.setPresence({ game: { name: 'Check walls.', type: 0 } });
+			var message = tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.';
+			this.checkwall.sendMessage(message);
+		}  
+	}
+	
+	async weewoo() {
+		function weewooo() {
+			for (var i = 0; i <= 5; i++;) {
+				this.checkwall.sendMessage('@everyone wee woo wee woo wee woo!', {tts: false});
+			}
+		};
+		global.weewoo = setInterval(weewooo, 30000);
+	}
 
-module.exports = dataHandler;
+module.exports = timers;
