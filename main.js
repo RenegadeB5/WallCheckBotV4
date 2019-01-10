@@ -1,11 +1,8 @@
 const path = require("path");
 const config = require("./localdata/config.json");
 const commando = require("discord.js-commando");
-const MongoClient = require('mongodb').MongoClient;
-const MongoDBProvider = require('mongodb');
 const { initializeServices, services } = require("./services");
 const log = require("fancy-log");
-const password = process.env.dbpassword;
 var utils = require("./utils");
 
 var client = new commando.Client({
@@ -37,11 +34,7 @@ client
 		client.registry.registerDefaultGroups();
 		log("Default groups initialized.");
 		client.registry.registerGroups([
-			["basics", "The essentials all bot needs."],
-			["fun", "Fun, time wasting commands."],
-			["utils", "General utility commands."],
-			["nadekoconnector", "Nadekoconnector commands."],
-			["challenges", "Commands for SBK Challenges."]
+			["basics", "Basic factions commands."],
 		]);
 		log("Command groups initialized.");
 		client.registry.registerCommandsIn(path.join(__dirname, "commands"));
@@ -67,8 +60,4 @@ client
 	});
 
 client.login(process.env.BOT_TOKEN);
-global.client = client;
-global.MongoClient = MongoClient;
-global.MongoDBProvider = MongoDBProvider;
-global.password = password;
-global.uri = "mongodb+srv://RenegadeB5:" + password + "@cluster0-l1qqw.mongodb.net/test?retryWrites=true";
+global.password = process.env.dbpassword;
