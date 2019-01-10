@@ -1,6 +1,0 @@
-{
-   "diep":"diep\\.io\\/\\#[a-fA-F0-9]{15,25}",
-   "moomoo":"moomoo\\.io\\/\\?server\\=[0-9]{1,2}\\:[0-9]{1,2}\\:[0-9]{1,2}",
-   "arras":"arras\\.surge\\.sh\\/\\#[a-z]",
-   "surviv":"surviv\\.io\\/\\#[A-Z-a-z-0-9]{4}"
-}
