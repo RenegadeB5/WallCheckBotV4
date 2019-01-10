@@ -61,4 +61,5 @@ client
 
 client.login(process.env.BOT_TOKEN);
 global.password = process.env.dbpassword;
+global.client = client;
 global.minutes = 0;
