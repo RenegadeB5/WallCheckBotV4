@@ -13,51 +13,52 @@ var client = new commando.Client({
 	commandPrefix: "_"
 });
 
-client
-	.on("ready", async () => {
-		log(`Logged in as ${client.user.tag} (${client.user.id})`);
-		client.user.setActivity("with sapphires!");
-		// Initialize datahandler
-		client.datahandler = new utils.datahandler();
-		await client.datahandler.initialize();
-		log("Datahandler initialized.");
-		// Initialize services
-		await initializeServices(client);
-		log("Services initialized.");
-		// Attach to global object
-		global.services = services;
-		global.utils = utils;
-		log("Global variables initialized.");
-		// Register commands, groups and types
-		client.registry.registerDefaultTypes();
-		log("Default types initialized.");
-		client.registry.registerDefaultGroups();
-		log("Default groups initialized.");
-		client.registry.registerGroups([
-			["basics", "Basic factions commands."],
-		]);
-		log("Command groups initialized.");
-		client.registry.registerCommandsIn(path.join(__dirname, "commands"));
-		log("Commands initialized.");
-	})
-	.on("commandError", (cmd, err) => {
-		if (err instanceof commando.FriendlyError) return;
-		log.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
-	})
-	.on("commandBlocked", (msg, reason) => {
-		log(`Command ${msg.command ? `${msg.command.groupID}:${msg.command.memberName}` : ""} blocked. ${reason}`);
-	})
-	.on("commandPrefixChange", (guild, prefix) => {
-		log(`Prefix ${prefix === "" ? "removed" : `changed to ${prefix || "the default"}`} ${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
-	})
-	.on("commandStatusChange", (guild, command, enabled) => {
-		log(`Command ${command.groupID}:${command.memberName} ${enabled ? "enabled" : "disabled"} ${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
-		`);
-	})
-	.on("groupStatusChange", (guild, group, enabled) => {
-		log(`Group ${group.id} ${enabled ? "enabled" : "disabled"} ${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.`);
-	});
+client.on("ready", async () => {
+	log(`Logged in as ${client.user.tag} (${client.user.id})`);
+	client.user.setActivity("with sapphires!");
+	// Initialize datahandler
+	client.datahandler = new utils.datahandler();
+	await client.datahandler.initialize();
+	log("Datahandler initialized.");
+	// Initialize services
+	await initializeServices(client);
+	log("Services initialized.");
+	// Attach to global object
+	global.services = services;
+	global.utils = utils;
+	log("Global variables initialized.");
+	// Register commands, groups and types
+	client.registry.registerDefaultTypes();
+	log("Default types initialized.");
+	client.registry.registerDefaultGroups();
+	log("Default groups initialized.");
+	client.registry.registerGroups([
+		["basics", "Basic factions commands."],
+	]);
+	log("Command groups initialized.");
+	client.registry.registerCommandsIn(path.join(__dirname, "commands"));
+	log("Commands initialized.");
+	client.user.setStatus('online')
+	client.user.setPresence({ game: { name: 'The walls are safe.', type: 0 } });
+})
+.on("commandError", (cmd, err) => {
+	if (err instanceof commando.FriendlyError) return;
+	log.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
+})
+.on("commandBlocked", (msg, reason) => {
+	log(`Command ${msg.command ? `${msg.command.groupID}:${msg.command.memberName}` : ""} blocked. ${reason}`);
+})
+.on("commandPrefixChange", (guild, prefix) => {
+	log(`Prefix ${prefix === "" ? "removed" : `changed to ${prefix || "the default"}`} ${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
+	`);
+})
+.on("commandStatusChange", (guild, command, enabled) => {
+	log(`Command ${command.groupID}:${command.memberName} ${enabled ? "enabled" : "disabled"} ${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
+	`);
+})
+.on("groupStatusChange", (guild, group, enabled) => {
+	log(`Group ${group.id} ${enabled ? "enabled" : "disabled"} ${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.`);
+});
 
 client.login(process.env.BOT_TOKEN);
 global.password = process.env.dbpassword;
