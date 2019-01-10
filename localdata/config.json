@@ -4,10 +4,5 @@
         "owners": [
             "259368804293935104"
         ]
-    },
-    "nadekoConnector": {
-        "enabled": false,
-        "address": "",
-        "password": ""
     }
 }
