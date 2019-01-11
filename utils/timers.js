@@ -49,7 +49,7 @@ class timers {
 	
 	async weewoo() {
 		function weewooo() {
-			for (var i = 0; i <= 5; i++;) {
+			for (var i = 0; i <= 5; i++) {
 				this.checkwall.sendMessage('@everyone wee woo wee woo wee woo!', {tts: false});
 			}
 		};
