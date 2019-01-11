@@ -2,21 +2,21 @@ class timers {
 	
 	constructor(client = global.client) {
 		this.client = client;
-        this.initialized = false;
+       		this.initialized = false;
 		this.checkwall = this.client.channels.find("name", "checkwall");
-    }
+	}
 	
 	async initialize() {
-        this.initialized = true;
-    }
+		this.initialized = true;
+	}
 
-    get isInitialized() {
-        return this.initialized;
-    }
+	get isInitialized() {
+		return this.initialized;
+	}
 
-    async counter() {
-        global.minutes += 1
-    }
+	async counter() {
+		global.minutes += 1
+	}
 	
 	async start() {
 		global.minutes = 0;
@@ -34,7 +34,7 @@ class timers {
 	async notify() {  
 		if (global.minutes >= 2) {
 			if (global.minutes >= 10) {
-				var tag = '@everyone'
+			var tag = '@everyone'
 			}
 			else {
 				var tag = '@here'
