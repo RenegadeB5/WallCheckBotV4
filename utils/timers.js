@@ -55,5 +55,6 @@ class timers {
 		};
 		global.weewoo = setInterval(weewooo, 30000);
 	}
+}
 
 module.exports = timers;
