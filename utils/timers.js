@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 class Timers {
 	
 	constructor(client = global.client) {
@@ -43,7 +44,7 @@ class Timers {
 			}
 			global.client.user.setStatus('idle');
 			global.client.user.setPresence({ game: { name: 'Check walls.', type: 0 } });
-			this.checkwall.sendMessage(tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.');
+			this.checkwall.send(tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.');
 		}  
 	}
 	
