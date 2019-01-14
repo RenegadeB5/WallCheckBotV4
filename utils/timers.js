@@ -1,4 +1,4 @@
-class timers {
+class Timers {
 	
 	constructor(client = global.client) {
 		this.client = client;
@@ -58,4 +58,4 @@ class timers {
 	}
 }
 
-module.exports = timers;
+module.exports = Timers;
