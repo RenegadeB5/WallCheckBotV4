@@ -43,7 +43,7 @@ class Timers {
 			}
 			global.client.user.setStatus('idle');
 			global.client.user.setPresence({ game: { name: 'Check walls.', type: 0 } });
-			this.checkwall.send(tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.');
+			global.client.channels.get('533359760989487164').send(tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.');
 		}  
 	}
 	
