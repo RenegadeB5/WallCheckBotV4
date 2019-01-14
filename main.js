@@ -40,8 +40,6 @@ client.on("ready", async () => {
 	log("Commands initialized.");
 	client.user.setStatus('online')
 	client.user.setPresence({ game: { name: 'The walls are safe.', type: 0 } });
-	client.timers.start();
-	console.log('Timers Initialized');
 })
 .on("commandError", (cmd, err) => {
 	if (err instanceof commando.FriendlyError) return;
@@ -66,3 +64,5 @@ client.login(process.env.BOT_TOKEN);
 global.password = process.env.dbpassword;
 global.client = client;
 global.minutes = 0;
+client.timers.start();
+console.log('Timers Initialized');
