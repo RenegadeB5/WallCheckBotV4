@@ -4,6 +4,7 @@ class timers {
 		this.client = client;
        		this.initialized = false;
 		this.checkwall = this.client.channels.find("name", "checkwall");
+		this.initialized = false;
 	}
 	
 	async initialize() {
