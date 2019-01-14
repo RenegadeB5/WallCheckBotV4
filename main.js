@@ -22,6 +22,7 @@ client.on("ready", async () => {
 	client.timers = new utils.timers();
 	await client.timers.initialize();
 	log("Datahandler initialized.");
+	log('Timers Initialized');
 	// Initialize services
 	await initializeServices(client);
 	log("Services initialized.");
@@ -67,4 +68,3 @@ global.password = process.env.dbpassword;
 global.client = client;
 global.minutes = 0;
 client.timers.start();
-console.log('Timers Initialized');
