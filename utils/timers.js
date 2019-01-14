@@ -41,10 +41,9 @@ class Timers {
 			else {
 				var tag = '@here'
 			}
-			this.client.user.setStatus('idle');
-			this.client.user.setPresence({ game: { name: 'Check walls.', type: 0 } });
-			var message = tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.';
-			this.checkwall.sendMessage(message);
+			global.client.user.setStatus('idle');
+			global.client.user.setPresence({ game: { name: 'Check walls.', type: 0 } });
+			this.checkwall.sendMessage(tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.');
 		}  
 	}
 	
