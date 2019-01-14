@@ -1,10 +1,9 @@
 const Discord = require('discord.js');
 class Timers {
 	
-	constructor(client = global.client) {
-		this.client = client;
+	constructor() {
        		this.initialized = false;
-		this.checkwall = this.client.channels.find("name", "checkwall");
+		this.checkwall = global.client.channels.find("name", "checkwall");
 		this.initialized = false;
 	}
 	
