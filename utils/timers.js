@@ -22,8 +22,8 @@ class Timers {
 	async start() {
 		console.log('started');
 		global.minutes = 0;
-		global.counter = setInterval(this.client.timers.counter(), 60000);
-		global.notify = setInterval(this.client.timers.notify(), 60000);
+		global.counter = setInterval(global.client.timers.counter(), 60000);
+		global.notify = setInterval(global.client.timers.notify(), 60000);
 	}
 	
 	async stop() {
