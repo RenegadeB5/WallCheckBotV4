@@ -9,7 +9,7 @@ exports.run = async (client, msg, args) => {
         .addField("Created On", client.user.createdAt, true)
         .addField("Total Users", client.users.size, true)
         .addField("Total Guilds", client.guilds.size, true)
-        .addField("Developer(s)", "Nef#8443, rjt#2336", true);
+        .addField("Developer(s)", "RenegadeB5", true);
 
     msg.channel.send(botembed);
 }
