@@ -1,16 +1,18 @@
 var { Command } = require("discord.js-commando");
 module.exports = class PingCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "ping",
-            description: "Checks the bot's ping.",
-            group: "basics",
-            memberName: "ping"
-        });
-    }
-
-    async run(msg) {
-        let pingMsg = await msg.channel.send("🔁 | Pinging ...");
-        return await pingMsg.edit(`✅ | ${pingMsg.createdTimestamp - msg.createdTimestamp}ms.`);
-    }
+	constructor(client) {
+		super(client, {
+			name: "clear",
+			description: "Clears the walls.",
+			group: "basics",
+			memberName: "cleat"
+		});
+	}
+	
+	async run(msg) {
+		global.client.timers.stop();
+		global.client.timers.start();
+		msg.channel.send('The walls have been cleared by ' + msg.author);
+			
+	}
 };
