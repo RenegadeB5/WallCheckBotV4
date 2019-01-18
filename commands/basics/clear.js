@@ -5,13 +5,14 @@ module.exports = class PingCommand extends Command {
 			name: "clear",
 			description: "Clears the walls.",
 			group: "basics",
-			memberName: "cleat"
+			memberName: "clear"
 		});
 	}
 	
 	async run(msg) {
 		global.client.timers.stop();
 		global.client.timers.start();
+		console.log(msg.author.discriminator);
 		msg.channel.send('The walls have been cleared by ' + msg.author);
 			
 	}
