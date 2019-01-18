@@ -26,7 +26,7 @@ class dataHandler {
 	}
 	async addPoint(user, userid) {
 		let exiled = await this.db.collection("factionPoints");
-		let member = await exiled.find({userid: userid}).sort({_id:-1}).limit(1).toArray();
+		let member = await exiled.find({userid: userid}).toArray();
 		if (member[0] === undefined) {
 			exiled.insertOne({user: user, userid: userid, points: 1});
 		}
