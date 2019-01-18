@@ -2,18 +2,19 @@ var { Command } = require("discord.js-commando");
 module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "clear",
-			description: "Clears the walls.",
+			name: "points",
+			description: "Gets a user's points.",
 			group: "basics",
-			memberName: "clear"
+			memberName: "points"
 		});
 	}
 	
 	async run(msg) {
-		global.client.timers.stop();
-		global.client.timers.start();
-		global.client.datahandler.addPoint(msg.author.tag, msg.author.id);
-		msg.channel.send('The walls have been cleared by ' + msg.author);
-			
+		if (msg.mentions.members.first) {
+			msg.channel.send(global.client.datahandler.getPoints(msg.mentions.members.first.id));
+		}
+		else {
+			msg.channel.send(global.client.datahandler.getPoints(msg.author.id));
+		}	
 	}
 };
