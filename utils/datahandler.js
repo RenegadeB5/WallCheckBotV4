@@ -6,6 +6,7 @@ class dataHandler {
 			host = "localhost:" + host;
 		this._host = "mongodb+srv://RenegadeB5:" + global.password + "@cluster0-l1qqw.mongodb.net/test?retryWrites=true";
 		this._databaseName = databaseName;
+		this.exiled = this.db.collection("factionPoints");
 		this.client = new MongoClient(this._host, { useNewUrlParser: true });
 		this.initialized = false;
 	}
@@ -25,29 +26,16 @@ class dataHandler {
 		this.db = null;
 	}
 	async addPoint(user, userid) {
-		let exiled = await this.db.collection("factionPoints");
 		let member = await exiled.find({userid: userid}).toArray();
 		if (member[0] === undefined) {
-			exiled.insertOne({user: user, userid: userid, points: 1});
+			this.exiled.insertOne({user: user, userid: userid, points: 1});
 		}
 		else {
-			console.log(member[0].points + 1);
-			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: member[0].points + 1}});
+			this.exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: member[0].points + 1}});
 		}
 	}
-	async fetchLink(query) {
-		let links = await this.db.collection("partylinks");
-		return await links.find(query).sort({_id:-1}).limit(1).toArray();
-		
-	}
-	async remove1Link() {
-		let links = await this.db.collection("partylinks");
-		return await links.findOneAndDelete({});
-	}
-	
-	async purgeLinks() {
-		let links = await this.db.collection("partylinks");
-		links.deleteMany({});
+	async getPoints(userid) {
+		return await this.exiled.find({userid: userid}).toArray()[0].points;
 	}
 }
 
