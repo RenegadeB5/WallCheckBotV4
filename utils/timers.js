@@ -35,7 +35,7 @@ class Timers {
 	async notify() {  
 		if (global.minutes >= 2) {
 			if (global.minutes >= 10) {
-			var tag = '@everyone'
+				var tag = '@everyone'
 			}
 			else {
 				var tag = '@here'
@@ -47,7 +47,7 @@ class Timers {
 			.setTitle('Check Walls!')
 			.addField('The walls haven\'t been checked in:', global.minutes + ' minutes!', true)
 			.setTimestamp()
-			this.checkwall.send(embed);
+			global.client.channels.get('533359760989487164').send(embed);
 		}  
 	}
 	
