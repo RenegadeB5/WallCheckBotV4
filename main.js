@@ -10,7 +10,7 @@ var client = new commando.Client({
 	commandEditableDuration: 0,
 	nonCommandEditable: false,
 	unknownCommandResponse: false,
-	commandPrefix: "_"
+	commandPrefix: "."
 });
 
 client.on("ready", async () => {
