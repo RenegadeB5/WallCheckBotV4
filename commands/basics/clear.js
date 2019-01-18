@@ -12,7 +12,7 @@ module.exports = class PingCommand extends Command {
 	async run(msg) {
 		global.client.timers.stop();
 		global.client.timers.start();
-		console.log(msg.author.tag + '#' + msg.author.discriminator);
+		global.client.datahandler.addPoint(msg.author.tag, msg.author.id);
 		msg.channel.send('The walls have been cleared by ' + msg.author);
 			
 	}
