@@ -10,6 +10,6 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		msg.channel.send(global.client.datahandler.getPoints(msg.mentions.members.first().id));
+		msg.channel.send('You have ' + global.client.datahandler.getPoints(msg.mentions.members.first().id) + ' points!');
 	}
 };
