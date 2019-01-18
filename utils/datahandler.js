@@ -43,7 +43,8 @@ class dataHandler {
 		let exiled = this.db.collection("factionPoints");
 		let lb = '';
 		let lbdata = await exiled.find().sort({points: -1}).toArray();
-		for (var i = set; set + 10 >= i; i++) {
+		let lbLength = lbdata.length();
+		for (var i = set; set + 3 >= i; i++) {
 			lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points)
 		}
 		console.log(lb);
