@@ -2,9 +2,8 @@ const Discord = require('discord.js');
 class Timers {
 	
 	constructor() {
+		this.checkwall = global.client.channels.get('533359760989487164');
        		this.initialized = false;
-		this.checkwall = global.client.channels.find("name", "checkwall");
-		this.initialized = false;
 	}
 	
 	async initialize() {
@@ -43,14 +42,19 @@ class Timers {
 			}
 			global.client.user.setStatus('idle');
 			global.client.user.setPresence({ game: { name: 'Check walls.', type: 0 } });
-			global.client.channels.get('533359760989487164').send(tag + " " + 'The walls have not been checked in' + " " + global.minutes + " " + 'minutes.');
+			let embed = new Discord.RichEmbed()
+			.setColor(0xFFFF00)
+			.setTitle('Check Walls!')
+			.addField('The walls haven\'t been checked in:', global.minutes + ' minutes!', true)
+			.setTimestamp()
+			this.checkwall.send(embed);
 		}  
 	}
 	
 	async weewoo() {
 		function weewooo() {
 			for (var i = 0; i <= 5; i++) {
-				this.checkwall.sendMessage('@everyone wee woo wee woo wee woo!', {tts: false});
+				this.checkwall.send('@everyone wee woo wee woo wee woo!', {tts: false});
 			}
 		};
 		global.weewoo = setInterval(weewooo, 30000);
