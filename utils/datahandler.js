@@ -41,7 +41,7 @@ class dataHandler {
 	}
 	async getLB() {
 		let exiled = this.db.collection("factionPoints");
-		console.log(await exiled.find().sort({points: 1}).toArray());
+		console.log(await exiled.find().sort({points: -1}).toArray());
 	}
 }
 
