@@ -39,6 +39,10 @@ class dataHandler {
 		let member = await exiled.find({userid: userid}).toArray();
 		return member[0].points;
 	}
+	async getLB() {
+		let exiled = this.db.collection("factionPoints");
+		console.log(await exiled.find().sort({points: 1}).toArray());
+	}
 }
 
 module.exports = dataHandler;
