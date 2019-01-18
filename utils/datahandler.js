@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 
 class dataHandler {
-	constructor(host = 27017, databaseName = "partylinks") {
+	constructor(host = 27017, databaseName = "factions") {
 		if (typeof host === "number")
 			host = "localhost:" + host;
 		this._host = "mongodb+srv://RenegadeB5:" + global.password + "@cluster0-l1qqw.mongodb.net/test?retryWrites=true";
