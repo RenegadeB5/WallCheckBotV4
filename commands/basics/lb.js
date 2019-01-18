@@ -12,6 +12,6 @@ module.exports = class PingCommand extends Command {
 	
 	async run(msg) {
 		let tag = msg.author.tag;
-		global.client.datahandler.getLB();
+		global.client.datahandler.getLB(0);
 	}
 };
