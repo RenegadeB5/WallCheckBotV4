@@ -3,26 +3,21 @@ const Discord = require('discord.js');
 module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "clear",
-			description: "Clears the walls.",
+			name: "lb",
+			description: "Gets the current leaderboard.",
 			group: "basics",
-			memberName: "clear"
+			memberName: "lb"
 		});
 	}
 	
 	async run(msg) {
 		let tag = msg.author.tag;
-		global.client.timers.stop();
-		global.client.timers.start();
-		global.client.datahandler.addPoint(tag, msg.author.id);
 		let embed = new Discord.RichEmbed()
+		global.client.datahandler.getLB();
 		.setColor(0x00FF00)
 		.setTitle('Walls Cleared!')
 		.addField('Cleared by:', tag, true)
 		.addField('Insentive:', tag + ' now has ' + (await global.client.datahandler.getPoints(msg.author.id) + 1) + ' points!', true)
-		.setTimestamp()
-		msg.channel.send(embed);
-		global.client.user.setStatus('online');
-		global.client.user.setPresence({ game: { name: 'The walls are safe.', type: 0 } });	
+		.setTimestamp()	
 	}
 };
