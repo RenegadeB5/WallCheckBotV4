@@ -10,8 +10,8 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		if (msg.mentions.members.first) {
-			console.log(msg.mentions.members.first.id);
+		if (msg.mentions.users.first) {
+			console.log(msg.mentions.users.first().id);
 			msg.channel.send(global.client.datahandler.getPoints(msg.mentions.members.first.id));
 		}
 		else {
