@@ -19,7 +19,7 @@ module.exports = class PingCommand extends Command {
 		.setColor(0x0000FF)
 		.setTitle('Walls Cleared!')
 		.addField('Cleared by:', tag, true)
-		.addField('Insentive:', msg.author.id + ' now has ' + await global.client.datahandler.getPoints(msg.author.id) + ' points!', true)
+		.addField('Insentive:', tag + ' now has ' + await global.client.datahandler.getPoints(msg.author.id) + ' points!', true)
 		.setTimestamp()
 		msg.channel.send(embed);
 		
