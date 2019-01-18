@@ -31,7 +31,7 @@ class dataHandler {
 			exiled.insertOne({user: user, userid: userid, points: 1});
 		}
 		else {
-			let points = exiled.find({ userid: userid });
+			let points = exiled.find({userid: userid}).sort({_id:-1}).limit(1).toArray();
 			console.log(points);
 			exiled.updateOne({userid: userid}, {user: user, userid: userid, points: points += 1});
 		}
