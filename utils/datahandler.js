@@ -36,6 +36,7 @@ class dataHandler {
 	}
 	async getPoints(userid) {
 		let exiled = this.db.collection("factionPoints");
+		console.log(userid);
 		return await exiled.find({userid: userid}).toArray()[0].points;
 	}
 }
