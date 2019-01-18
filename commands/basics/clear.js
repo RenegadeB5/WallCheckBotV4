@@ -1,4 +1,5 @@
 var { Command } = require("discord.js-commando");
+const Discord = require('discord.js');
 module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -13,7 +14,13 @@ module.exports = class PingCommand extends Command {
 		global.client.timers.stop();
 		global.client.timers.start();
 		global.client.datahandler.addPoint(msg.author.tag, msg.author.id);
-		msg.channel.send('The walls have been cleared by ' + msg.author);
+		let embed = new Discord.RichEmbed()
+		.setColor(0x0000FF)
+		.setTitle('The walls have been cleared by ' + msg.author + '!')
+		.setFooter(msg.auhtor + ' now has ' + await global.client.datahandler.getPoints(msg.author.id) + '!')
+		.setTimestamp()
+		msg.channel.send(embed);
+		
 			
 	}
 };
