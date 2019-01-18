@@ -22,7 +22,7 @@ module.exports = class PingCommand extends Command {
 		.addField('Insentive:', tag + ' now has ' + await global.client.datahandler.getPoints(msg.author.id) + ' points!', true)
 		.setTimestamp()
 		msg.channel.send(embed);
-		
-			
+		global.client.user.setStatus('online');
+		global.client.user.setPresence({ game: { name: 'The walls are safe.', type: 0 } });	
 	}
 };
