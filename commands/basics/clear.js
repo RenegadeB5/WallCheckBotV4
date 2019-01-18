@@ -16,8 +16,8 @@ module.exports = class PingCommand extends Command {
 		global.client.datahandler.addPoint(msg.author.tag, msg.author.id);
 		let embed = new Discord.RichEmbed()
 		.setColor(0x0000FF)
-		.setTitle('The walls have been cleared by ' + msg.author + '!')
-		.setFooter(msg.auhtor + ' now has ' + await global.client.datahandler.getPoints(msg.author.id) + '!')
+		.setTitle('Walls Cleared!')
+		.setField('The walls have been cleared by ' + msg.author.tag + '!', msg.auhtor.tag + ' now has ' + await global.client.datahandler.getPoints(msg.author.id) + '!')
 		.setTimestamp()
 		msg.channel.send(embed);
 		
