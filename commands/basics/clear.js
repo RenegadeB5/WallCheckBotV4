@@ -11,13 +11,14 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
+		let tag = msg.author.tag;
 		global.client.timers.stop();
 		global.client.timers.start();
-		global.client.datahandler.addPoint(msg.author.tag, msg.author.id);
+		global.client.datahandler.addPoint(tag, msg.author.id);
 		let embed = new Discord.RichEmbed()
 		.setColor(0x0000FF)
 		.setTitle('Walls Cleared!')
-		.addField('Cleared by:', msg.auhtor.tag, true)
+		.addField('Cleared by:', tag, true)
 		.addField('Insentive:', msg.author.id + ' now has ' + await global.client.datahandler.getPoints(msg.author.id) + ' points!', true)
 		.setTimestamp()
 		msg.channel.send(embed);
