@@ -47,7 +47,7 @@ class dataHandler {
 		for (var i = 0; i <= lbdata.length - 1; i++) {
 			lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points)
 		}
-		return await [lb, pages];
+		return lb;
 	}
 }
 
