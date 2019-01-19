@@ -11,7 +11,7 @@ module.exports = {
 				let lb = await global.client.datahandler.getLB((reaction.message.embeds[0].title).split(' ')[2] + 1);
 				let embed = new Discord.RichEmbed()
 				.setColor(0x00FF00)
-				.setTitle('Leaderboard: Page ' + ((reaction.message.embeds[0].title).split(' ')[2]) + 1 ' of ' + lb[1])
+				.setTitle('Leaderboard: Page ' + ((reaction.message.embeds[0].title).split(' ')[2]) + 1 + ' of ' + lb[1])
 				.addField('Top 10:', lb[0], true)
 				.setFooter('Insentive text goes here.')
 				.setTimestamp()
