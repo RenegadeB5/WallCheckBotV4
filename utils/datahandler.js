@@ -46,7 +46,7 @@ class dataHandler {
 		let pages = await Math.floor(lbdata.length / 100 % 10 * 10 + 1);
 		for (var i = page * 10; i <= (page * 10) + 10 - 1; i++) {
 			if (lbdata[0] === undefined) {
-				return;
+				break;
 			}
 			else {
 				lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points + ' points')
