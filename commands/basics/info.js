@@ -3,20 +3,20 @@ const Discord = require('discord.js');
 module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "snipe",
-			description: "Snipes the most recently deleted message.",
+			name: "info",
+			description: "Displays information about the bot.",
 			group: "basics",
-			memberName: "snipe"
+			memberName: "info"
 		});
 	}
 	
 	async run(msg) {
-		let snipe = global.snipe;
-		if (snipe === undefined) return;
 		let embed = new Discord.RichEmbed()
 		.setColor(0x0000FF)
-		.setTitle('Message sniped!')
-		.addField(snipe[0] + ':', snipe[1], true)
+		.setTitle('Info About This Bot')
+		.addField('Developed by:', 'RenegadeBB#4311', true)
+		.addField('Version:', '4', true)
+		.addField('Prefix:', '.', true)
 		.setTimestamp()
 		msg.channel.send(embed);
 	}
