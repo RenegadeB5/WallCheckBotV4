@@ -3,21 +3,21 @@ const Discord = require('discord.js');
 module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "lb",
-			description: "Gets the current leaderboard.",
+			name: "snipe",
+			description: "Snipes the most recently deleted message.",
 			group: "basics",
-			memberName: "lb"
+			memberName: "snipe"
 		});
 	}
 	
 	async run(msg) {
-		let lb = await global.client.datahandler.getLB(1);
+		let snipe = global.snipe;
+		if (snipe[0] === undefined) return;
 		let embed = new Discord.RichEmbed()
-		.setColor(0x00FFFF)
-		.setTitle('Leaderboard: Page 1 of ' + lb[1])
-		.addField('Member: Points', lb[0], true)
-		.setFooter('Insentive text goes here.')
+		.setColor(0x0000FF)
+		.setTitle('Message sniped!')
+		.addField(snipe[0] + ':', snipe[1], true)
 		.setTimestamp()
-		msg.channel.send(embed).then(function (message) {message.react('◀'), setTimeout(function () {message.react('▶')}, 1000)});
+		msg.channel.send(embed);
 	}
 };
