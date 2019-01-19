@@ -12,14 +12,21 @@ module.exports = class PingCommand extends Command {
 	
 	async run(msg) {
 		let tag = msg.author.tag;
+		let insentive;
+		if (global.cooldown === true) {
+			insentive = 'The walls were cleared but ' + tag + ' hasn\'t gained a point!';
+		}
+		else {
+			insentive = tag + ' now has ' + (await global.client.datahandler.getPoints(msg.author.id)) + ' points!'
+			global.client.datahandler.addPoint(tag, msg.author.id);
+		}
 		global.client.timers.stop();
 		global.client.timers.start();
-		global.client.datahandler.addPoint(tag, msg.author.id);
 		let embed = new Discord.RichEmbed()
 		.setColor(0x00FF00)
 		.setTitle('Walls Cleared!')
 		.addField('Cleared by:', tag, true)
-		.addField('Insentive:', tag + ' now has ' + (await global.client.datahandler.getPoints(msg.author.id)) + ' points!', true)
+		.addField('Insentive:', , true)
 		.setTimestamp()
 		msg.channel.send(embed);
 		global.client.user.setStatus('online');
