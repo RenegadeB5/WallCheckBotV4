@@ -41,6 +41,8 @@ client.on("ready", async () => {
 	log("Command groups initialized.");
 	client.registry.registerCommandsIn(path.join(__dirname, "commands"));
 	log("Commands initialized.");
+	client.user.setStatus('online');
+	client.user.setPresence({ game: { name: 'Wall service initialized!', type: 0 } });
 	client.timers.start();
 })
 .on("commandError", (cmd, err) => {
