@@ -52,7 +52,7 @@ class dataHandler {
 		else {
 			limit = page * 10;
 		}
-		for (var i = page * 10; i <= limit; i++) {
+		for (var i = (page - 1) * 10; i <= limit; i++) {
 			lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points + ' points')
 		}
 		return [lb, pages];
