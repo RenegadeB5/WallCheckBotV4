@@ -68,4 +68,3 @@ global.client = client;
 global.minutes = 0;
 global.cooldown = false;
 global.paused = false;
-log("All global variables initialized.");
