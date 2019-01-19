@@ -11,7 +11,8 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		global.client.timers.start();
+		global.client.timers.stop();
+		setTimeout(function () {global.client.timers.start()}, 1000);
 		global.pasued = false;
 		msg.channel.send('Wall service initialized!');
 	}
