@@ -1,6 +1,3 @@
-const fs = require("fs");
-const regex = require("/app/links.json");
-const diepregex = RegExp(regex.diep);
 const Discord = require('discord.js');
 module.exports = {
 	name: "Leaderboard",
