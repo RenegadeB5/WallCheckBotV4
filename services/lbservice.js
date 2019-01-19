@@ -7,12 +7,10 @@ module.exports = {
 		messageReactionAdd: async function (reaction) {
 			if (reaction.users.map(r => r.id).slice(-1)[0] === '407593823921766410') return;		
 			if(reaction.emoji.name === '▶' && reaction.message.author.id === '407593823921766410') {
-				
+				if ((reaction.message.embeds[0].title).split(' ')[2] === (reaction.message.embeds[0].title).split(' ')[4]) return;
 			}
 			if(reaction.emoji.name === '◀' && reaction.message.author.id === '407593823921766410') {
-				console.log((reaction.message.embeds[0].title).split(' ')[2]);
-				console.log((reaction.message.embeds[0].title).split(' ')[4]);
-				
+				if ((reaction.message.embeds[0].title).split(' ')[2] === (reaction.message.embeds[0].title).split(' ')[4]) return;
 			}
 		}
 	}
