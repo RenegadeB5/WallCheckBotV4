@@ -6,7 +6,7 @@ module.exports = class PingCommand extends Command {
 			description: "Gives a user points.",
 			group: "basics",
 			memberName: "addpoint",
-			clientPermissions: ['ADMINISTRATOR']
+			userPermissions: ['ADMINISTRATOR']
 		});
 	}
 	
