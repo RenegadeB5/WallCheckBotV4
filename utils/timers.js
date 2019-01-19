@@ -30,7 +30,7 @@ class Timers {
 	async stop() {
 		clearInterval(global.counter);
 		clearInterval(global.notify);
-		clearInterval(global.weewoo);
+		clearInterval(global.raid);
 	}
     
 	async notify() {  
@@ -68,7 +68,7 @@ class Timers {
 	
 	async weewoo(user) {
 		global.client.timers.stop;
-		global.weewoo = setInterval(global.client.timers.weewooo(user), 30000);
+		global.raid = setInterval(global.client.timers.weewooo(user), 30000);
 		global.client.user.setStatus('dnd');
 		global.client.user.setPresence({ game: { name: 'Wee Woo!', type: 0 } });
 	}
