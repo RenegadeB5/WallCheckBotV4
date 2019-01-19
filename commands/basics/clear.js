@@ -17,8 +17,8 @@ module.exports = class PingCommand extends Command {
 			insentive = 'The walls were cleared but ' + tag + ' hasn\'t gained a point!';
 		}
 		else {
-			insentive = tag + ' now has ' + (await global.client.datahandler.getPoints(msg.author.id)) + ' points!'
-			global.client.datahandler.addPoint(tag, msg.author.id);
+			insentive = tag + ' now has ' + (await global.client.datahandler.getPoints(msg.author.id) + 1) + ' points!'
+			setTimeout(function () {global.client.datahandler.addPoint(tag, msg.author.id)}, 1000);
 		}
 		global.client.timers.stop();
 		global.client.timers.start();
