@@ -11,6 +11,7 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
+		if (global.paused === true) return;
 		let tag = msg.author.tag;
 		let insentive;
 		if (global.cooldown === true) {
