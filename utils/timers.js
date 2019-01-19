@@ -57,7 +57,7 @@ class Timers {
 	async weewoo(user) {
 		global.client.timers.stop();
 		function weewooo(user) {
-			for (var i = 0; i <= 5; i++) {
+			for (var i = 1; i <= 5; i++) {
 				global.client.channels.get('533359760989487164').send('@everyone');
 			}
 			let embed = new Discord.RichEmbed()
