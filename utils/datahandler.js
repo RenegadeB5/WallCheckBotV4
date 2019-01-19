@@ -47,7 +47,7 @@ class dataHandler {
 		let pages = await Math.floor((lbdata.length / 100 % 10 * 10) + 1);
 		let limit = 0;
 		if (page === pages) {
-			limit = lbdata.length;
+			limit = lbdata.length - 1;
 		}
 		else {
 			limit = page * 10;
