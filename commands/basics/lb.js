@@ -14,7 +14,7 @@ module.exports = class PingCommand extends Command {
 		let embed = new Discord.RichEmbed()
 		.setColor(0x00FF00)
 		.setTitle('Leaderboard')
-		.addField('Top 10:', await global.client.datahandler.getLB()[0], true)
+		.addField('Top 10:', (await global.client.datahandler.getLB())[0], true)
 		.setTimestamp()
 		msg.channel.send(embed).then(function (message) {message.react('◀'), message.react('▶')});;
 	}
