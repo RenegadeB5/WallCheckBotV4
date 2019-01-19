@@ -59,13 +59,10 @@ class Timers {
 		function weewooo() {
 			console.log('wee woo');
 			global.client.channels.get('533359760989487164').send('@everyone');
-			global.client.channels.get('533359760989487164').send('@everyone');
-			global.client.channels.get('533359760989487164').send('@everyone');
-			global.client.channels.get('533359760989487164').send('@everyone');
-			global.client.channels.get('533359760989487164').send('@everyone');
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFF0000)
 			.setTitle('Wee Woo!')
+			.addField('Triggered by:', user, true)
 			.setTimestamp()
 			global.client.channels.get('533359760989487164').send(embed);
 		};
