@@ -66,7 +66,7 @@ class Timers {
 			global.client.channels.get('533359760989487164').send(embed);
 		};
 		weewooo();
-		global.raid = setInterval(() => weewooo(), 30000);
+		global.raid = setInterval(() => weewooo(), 6000);
 		global.client.user.setStatus('dnd');
 		global.client.user.setPresence({ game: { name: 'Wee Woo!', type: 0 } });
 	}
