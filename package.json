@@ -1,13 +1,12 @@
 {
-	"name": "sapphyr",
+	"name": "WallCheckBotV4",
 	"version": "0.0.2",
 	"description": "A community oriented Discord bot",
 	"main": "main.js",
 	"scripts": {
 		"start": "node main.js"
 	},
-	"author": "rjt",
-	"license": "MIT",
+	"author": "RenegadeBB#4311",
 	"dependencies": {
 		"fancy-log": "^1.3.2",
 		"discord.js": "^11.4.2",
