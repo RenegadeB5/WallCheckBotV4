@@ -6,7 +6,7 @@ module.exports = class PingCommand extends Command {
 			description: "Stops the wall service",
 			group: "basics",
 			memberName: "stop",
-			clientPermissions: ['ADMINISTRATOR']
+			userPermissions: ['ADMINISTRATOR']
 		});
 	}
 	
