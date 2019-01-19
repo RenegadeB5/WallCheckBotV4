@@ -26,7 +26,7 @@ module.exports = class PingCommand extends Command {
 		.setColor(0x00FF00)
 		.setTitle('Walls Cleared!')
 		.addField('Cleared by:', tag, true)
-		.addField('Insentive:', , true)
+		.addField('Insentive:', insentive, true)
 		.setTimestamp()
 		msg.channel.send(embed);
 		global.client.user.setStatus('online');
