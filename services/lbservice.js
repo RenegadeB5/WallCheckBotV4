@@ -10,7 +10,7 @@ module.exports = {
 				
 			}
 			if(reaction.emoji.name === '◀' && reaction.message.author.id === '407593823921766410') {
-				console.log(reaction.message);
+				console.log(reaction.message.embeds.title);
 				let lb = await global.client.datahandler.getLB();
 				let embed = new Discord.RichEmbed()
 				.setColor(0x00FF00)
