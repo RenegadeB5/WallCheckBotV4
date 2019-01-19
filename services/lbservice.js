@@ -12,7 +12,7 @@ module.exports = {
 				let embed = new Discord.RichEmbed()
 				.setColor(0x00FF00)
 				.setTitle('Leaderboard: Page ' + parseInt((reaction.message.embeds[0].title).split(' ')[2]) + 1 + ' of ' + lb[1])
-				.addField('Top 10:', lb[0], true)
+				.addField('Member: Points', lb[0], true)
 				.setFooter('Insentive text goes here.')
 				.setTimestamp()
 				reaction.message.edit(embed);
