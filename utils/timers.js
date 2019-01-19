@@ -54,8 +54,6 @@ class Timers {
 		}  
 	}
 	
-	async 
-	
 	async weewoo(user) {
 		global.client.timers.stop;
 		function weewooo(user) {
