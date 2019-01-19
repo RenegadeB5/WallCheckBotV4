@@ -20,7 +20,7 @@ class Timers {
 	
 	async start() {
 		global.client.user.setStatus('online');
-		global.client.user.setPresence({ game: { name: 'The walls are clear!!', type: 0 } });
+		global.client.user.setPresence({ game: { name: 'The walls are clear!', type: 0 } });
 		global.cooldown = true;
 		global.minutes = 0;
 		global.counter = setInterval(global.client.timers.counter, 60000);
