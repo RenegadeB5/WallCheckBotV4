@@ -11,7 +11,7 @@ module.exports = {
 				let lb = await global.client.datahandler.getLB(parseInt((reaction.message.embeds[0].title).split(' ')[2]) + 1);
 				let embed = new Discord.RichEmbed()
 				.setColor(0x00FFFF)
-				.setTitle('Leaderboard: Page ' + parseInt((reaction.message.embeds[0].title).split(' ')[2]) + 1 + ' of ' + lb[1])
+				.setTitle('Leaderboard: Page ' + (parseInt((reaction.message.embeds[0].title).split(' ')[2])) + 1 + ' of ' + lb[1])
 				.addField('Member: Points', lb[0], true)
 				.setFooter('Insentive text goes here.')
 				.setTimestamp()
@@ -22,7 +22,7 @@ module.exports = {
 				let lb = await global.client.datahandler.getLB(parseInt((reaction.message.embeds[0].title).split(' ')[2]) - 1);
 				let embed = new Discord.RichEmbed()
 				.setColor(0x00FFFF)
-				.setTitle('Leaderboard: Page ' + parseInt((reaction.message.embeds[0].title).split(' ')[2]) - 1 + ' of ' + lb[1])
+				.setTitle('Leaderboard: Page ' + (parseInt((reaction.message.embeds[0].title).split(' ')[2])) - 1 + ' of ' + lb[1])
 				.addField('Member: Points', lb[0], true)
 				.setFooter('Insentive text goes here.')
 				.setTimestamp()
