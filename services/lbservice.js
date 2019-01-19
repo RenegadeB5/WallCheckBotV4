@@ -8,7 +8,7 @@ module.exports = {
 			if (reaction.users.map(r => r.id).slice(-1)[0] === '407593823921766410') return;		
 			if(reaction.emoji.name === '▶' && reaction.message.author.id === '407593823921766410') {
 				if (((reaction.message.embeds[0].title).split(' ')[2]) === (reaction.message.embeds[0].title).split(' ')[4]) return;
-				console.log(((reaction.message.embeds[0].title).split(' ')[2] + 1)[0]);
+				console.log(parseInt((reaction.message.embeds[0].title).split(' ')[2]) + 1);
 				let lb = await global.client.datahandler.getLB((reaction.message.embeds[0].title).split(' ')[2] + 1);
 				let embed = new Discord.RichEmbed()
 				.setColor(0x00FF00)
