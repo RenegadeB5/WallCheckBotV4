@@ -45,7 +45,7 @@ class dataHandler {
 		let lbdata = await exiled.find().sort({points: -1}).toArray();
 		let pages = await Math.floor(lbdata.length / 100 % 10 * 10 + 1);
 		let limit = 0;
-		if (page === pages) {
+		if (page + 1 === pages) {
 			limit = pages.length + (pages * 10) - 1;
 			console.log(limit);
 		}
