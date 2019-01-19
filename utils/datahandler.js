@@ -39,12 +39,12 @@ class dataHandler {
 		let member = await exiled.find({userid: userid}).toArray();
 		return member[0].points;
 	}
-	async getLB() {
+	async getLB(page) {
 		let exiled = this.db.collection("factionPoints");
 		let lb = '';
 		let lbdata = await exiled.find().sort({points: -1}).toArray();
 		let pages = await Math.floor(lbdata.length / 100 % 10 * 10 + 1);
-		for (var i = 0; i <= lbdata.length - 1; i++) {
+		for (var i = page * 10; i <= (page * 10) + 10 - 1; i++) {
 			lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points + ' points')
 		}
 		return [lb, pages];
