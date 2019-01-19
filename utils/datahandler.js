@@ -31,11 +31,7 @@ class dataHandler {
 			exiled.insertOne({user: user, userid: userid, points: 1});
 		}
 		else {
-			let add = await member[0].points + points;
-			console.log(add);
-			console.log(member[0].points);
-			console.log(points);
-			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: add}});
+			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: member[0].points + points}});
 		}
 	}
 	async getPoints(userid) {
