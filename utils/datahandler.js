@@ -33,6 +33,7 @@ class dataHandler {
 		else {
 			let add = member[0].points + points;
 			console.log(add);
+			console.log(member[0].points);
 			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: add}});
 		}
 	}
