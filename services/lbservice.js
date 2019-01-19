@@ -10,8 +10,8 @@ module.exports = {
 				
 			}
 			if(reaction.emoji.name === '◀' && reaction.message.author.id === '407593823921766410') {
-				console.log((reaction.message.embeds[0].title)[18]);
-				console.log((reaction.message.embeds[0].title)[23]);
+				console.log((reaction.message.embeds[0].title).split(' ').join(',')[2]);
+				console.log((reaction.message.embeds[0].title).split(' ').join(',')[5]);
 				
 			}
 		}
