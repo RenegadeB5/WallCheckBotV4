@@ -24,14 +24,14 @@ class dataHandler {
 		await this.client.close();
 		this.db = null;
 	}
-	async addPoint(user, userid) {
+	async addPoint(user, userid, points) {
 		let exiled = this.db.collection("factionPoints");
 		let member = await exiled.find({userid: userid}).toArray();
 		if (member[0] === undefined) {
 			exiled.insertOne({user: user, userid: userid, points: 1});
 		}
 		else {
-			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: member[0].points + 1}});
+			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: member[0].points + points}});
 		}
 	}
 	async getPoints(userid) {
