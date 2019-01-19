@@ -11,7 +11,7 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		global.client.user.setStatus('online');
+		global.client.user.setStatus('idle');
 		global.client.user.setPresence({ game: { name: 'Wall service paused!', type: 0 } });
 		global.client.timers.stop();
 		global.paused = true;
