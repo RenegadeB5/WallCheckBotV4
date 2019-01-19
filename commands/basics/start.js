@@ -2,19 +2,17 @@ var { Command } = require("discord.js-commando");
 module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "stop",
-			description: "Stops the wall service",
+			name: "start",
+			description: "Starts the wall service",
 			group: "basics",
-			memberName: "stop",
+			memberName: "start",
 			userPermissions: ['ADMINISTRATOR']
 		});
 	}
 	
 	async run(msg) {
-		global.client.user.setStatus('online');
-		global.client.user.setPresence({ game: { name: 'Wall service paused!', type: 0 } });
-		global.client.timers.stop();
-		global.pasued = true;
-		msg.channel.send('Wall service stopped!');
+		global.client.timers.start();
+		global.pasued = false;
+		msg.channel.send('Wall service initialized!');
 	}
 };
