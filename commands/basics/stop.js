@@ -2,10 +2,10 @@ var { Command } = require("discord.js-commando");
 module.exports = class PingCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "points",
-			description: "Gets a user's points.",
+			name: "stop",
+			description: "Stops the wall service",
 			group: "basics",
-			memberName: "points",
+			memberName: "stop",
 			clientPermissions: ['ADMINISTRATOR']
 		});
 	}
