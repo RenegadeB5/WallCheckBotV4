@@ -11,10 +11,10 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		let lb = await global.client.datahandler.getLB();
+		let lb = await global.client.datahandler.getLB(0);
 		let embed = new Discord.RichEmbed()
 		.setColor(0x00FF00)
-		.setTitle('Leaderboard')
+		.setTitle('Leaderboard: Page 1')
 		.addField('Top 10:', lb[0], true)
 		.setFooter('Showing page 1 of ' + lb[1])
 		.setTimestamp()
