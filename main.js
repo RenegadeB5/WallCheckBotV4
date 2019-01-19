@@ -69,3 +69,4 @@ global.password = process.env.dbpassword;
 global.client = client;
 global.minutes = 0;
 global.cooldown = false;
+global.pagenumber = 1;
