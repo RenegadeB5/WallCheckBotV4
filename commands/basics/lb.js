@@ -13,7 +13,7 @@ module.exports = class PingCommand extends Command {
 	async run(msg) {
 		let lb = await global.client.datahandler.getLB(1);
 		let embed = new Discord.RichEmbed()
-		.setColor(0x00FF00)
+		.setColor(0x00FFFF)
 		.setTitle('Leaderboard: Page 1 of ' + lb[1])
 		.addField('Member: Points', lb[0], true)
 		.setFooter('Insentive text goes here.')
