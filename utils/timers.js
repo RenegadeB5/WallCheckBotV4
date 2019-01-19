@@ -28,7 +28,6 @@ class Timers {
 	}
 	
 	async stop() {
-		console.log('cleared');
 		clearInterval(global.counter);
 		clearInterval(global.notify);
 		clearInterval(global.weewoo);
@@ -55,13 +54,22 @@ class Timers {
 		}  
 	}
 	
-	async weewoo() {
-		function weewooo() {
+	async weewoo(user) {
+		global.client.timers.stop();
+		function weewooo(user) {
 			for (var i = 0; i <= 5; i++) {
-				this.checkwall.send('@everyone wee woo wee woo wee woo!', {tts: false});
+				this.checkwall.send('@everyone', {tts: false});
 			}
+			let embed = new Discord.RichEmbed()
+			.setColor(0xFF0000)
+			.setTitle('Wee Woo!')
+			.addField('Triggered by:', user, true)
+			.setTimestamp()
+			global.client.channels.get('533359760989487164').send(embed);
 		};
-		global.weewoo = setInterval(weewooo, 30000);
+		global.weewoo = setInterval(weewooo(user), 30000);
+		global.client.user.setStatus('dnd');
+		global.client.user.setPresence({ game: { name: 'Wee Woo!', type: 0 } });
 	}
 }
 
