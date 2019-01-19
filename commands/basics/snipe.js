@@ -12,7 +12,7 @@ module.exports = class PingCommand extends Command {
 	
 	async run(msg) {
 		let snipe = global.snipe;
-		if (snipe[0] === undefined) return;
+		if (snipe === undefined) return;
 		let embed = new Discord.RichEmbed()
 		.setColor(0x0000FF)
 		.setTitle('Message sniped!')
