@@ -44,7 +44,7 @@ class dataHandler {
 		let exiled = this.db.collection("factionPoints");
 		let lb = '';
 		let lbdata = await exiled.find().sort({points: -1}).toArray();
-		let pages = await Math.floor(lbdata.length / 100 % 10 * 10 + 1);
+		let pages = await Math.floor((lbdata.length / 100 % 10 * 10) + 1);
 		let limit = 0;
 		if (page + 1 === pages) {
 			limit = lbdata.length - (page * 10) - 1;
@@ -52,7 +52,7 @@ class dataHandler {
 		else {
 			limit = page * 10;
 		}
-		for (var i = pages * 10; i <= limit; i++) {
+		for (var i = page * 10; i <= limit; i++) {
 			lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points + ' points')
 		}
 		return [lb, pages];
