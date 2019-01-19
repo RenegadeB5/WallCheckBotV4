@@ -11,7 +11,7 @@ module.exports = {
 			}
 			if(reaction.emoji.name === '◀' && reaction.message.author.id === '407593823921766410') {
 				console.log((reaction.message.embeds[0].title).split(' ')[2]);
-				console.log((reaction.message.embeds[0].title).split(' ')[5]);
+				console.log((reaction.message.embeds[0].title).split(' ')[4]);
 				
 			}
 		}
