@@ -58,7 +58,7 @@ class Timers {
 		global.client.timers.stop();
 		function weewooo(user) {
 			for (var i = 0; i <= 5; i++) {
-				global.client.channels.get('533359760989487164').send('@everyone', {tts: false});
+				global.client.channels.get('533359760989487164').send('@everyone');
 			}
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFF0000)
