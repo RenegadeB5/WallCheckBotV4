@@ -19,7 +19,7 @@ class Timers {
 	}
 	
 	async start() {
-		console.log('started');
+		global.cooldown = true;
 		global.minutes = 0;
 		global.counter = setInterval(global.client.timers.counter, 60000);
 		global.notify = setInterval(global.client.timers.notify, 60000);
@@ -34,6 +34,7 @@ class Timers {
     
 	async notify() {  
 		if (global.minutes >= 2) {
+			global.cooldown = false;
 			if (global.minutes >= 10) {
 				var tag = '@everyone'
 			}
