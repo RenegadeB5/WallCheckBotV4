@@ -47,16 +47,13 @@ class dataHandler {
 		let limit = 0;
 		if (page + 1 === pages) {
 			limit = lbdata.length - (page * 10) - 1;
-			console.log(limit);
 		}
 		else {
 			limit = page * 10;
-			console.log(limit);
 		}
 		for (var i = page * 10; i <= limit; i++) {
 			lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points + ' points')
 		}
-		console.log(lb);
 		return [lb, pages];
 	}
 }
