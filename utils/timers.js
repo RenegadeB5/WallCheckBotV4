@@ -54,21 +54,21 @@ class Timers {
 		}  
 	}
 	
-	async weewooo(user) {
-		for (var i = 1; i <= 5; i++) {
-			global.client.channels.get('533359760989487164').send('@everyone');
-		}
-		let embed = new Discord.RichEmbed()
-		.setColor(0xFF0000)
-		.setTitle('Wee Woo!')
-		.addField('Triggered by:', user, true)
-		.setTimestamp()
-		global.client.channels.get('533359760989487164').send(embed);
-	};
+	async 
 	
 	async weewoo(user) {
 		global.client.timers.stop;
-		global.raid = setInterval(global.client.timers.weewooo(user), 30000);
+		function weewooo(user) {
+			for (var i = 1; i <= 5; i++) {
+				global.client.channels.get('533359760989487164').send('@everyone');
+			}
+			let embed = new Discord.RichEmbed()
+			.setColor(0xFF0000)
+			.setTitle('Wee Woo!')
+			.setTimestamp()
+			global.client.channels.get('533359760989487164').send(embed);
+		};
+		global.raid = setInterval(global.client.timers.weewooo, 30000);
 		global.client.user.setStatus('dnd');
 		global.client.user.setPresence({ game: { name: 'Wee Woo!', type: 0 } });
 	}
