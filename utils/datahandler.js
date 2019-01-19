@@ -44,13 +44,15 @@ class dataHandler {
 		let lb = '';
 		let lbdata = await exiled.find().sort({points: -1}).toArray();
 		let pages = await Math.floor(lbdata.length / 100 % 10 * 10 + 1);
-		for (var i = page * 10; i >= (page * 10) + 10; i++) {
-			if (lbdata[0] === undefined) {
-				break;
-			}
-			else {
-				lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points + ' points')
-			}
+		let limit = 0;
+		if (page === pages) {
+			limit = pages.length - (pages * 10);
+		}
+		else {
+			limit = page * 10;
+		}
+		for (var i = page * 10; i >= limit; i++) {
+			lb = lb + ('\n' + lbdata[i].user + ': ' + lbdata[i].points + ' points')
 		}
 		return [lb, pages];
 	}
