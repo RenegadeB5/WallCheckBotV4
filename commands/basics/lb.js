@@ -16,6 +16,6 @@ module.exports = class PingCommand extends Command {
 		.setTitle('Leaderboard')
 		.addField('Top 10:', await global.client.datahandler.getLB()[0], true)
 		.setTimestamp()
-		msg.channel.send(embed).then(function (message) {message.react('◀', '▶')});;
+		msg.channel.send(embed).then(function (message) {message.react('◀'), message.react('▶')});;
 	}
 };
