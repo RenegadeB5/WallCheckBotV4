@@ -11,6 +11,7 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
+		if (global.paused === true) return;
 		global.client.timers.weewoo(msg.author.tag);
 	}
 };
