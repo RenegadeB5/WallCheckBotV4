@@ -19,6 +19,7 @@ class Timers {
 	}
 	
 	async start() {
+		global.client.channels.get('536264092248178688').setName('✔️ Walls are clear!')
 		global.cooldown = true;
 		global.minutes = 0;
 		global.counter = setInterval(global.client.timers.counter, 60000);
@@ -40,7 +41,7 @@ class Timers {
 			else {
 				var tag = '@here'
 			}
-			global.client.channels.get('536264092248178688').setName('Check walls! : ' + global.mintues + ' minutes!');
+			global.client.channels.get('536264092248178688').setName('⚠️ Check walls! : ' + global.mintues + ' minutes!');
 			global.client.channels.get('533359760989487164').send(tag);
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFFFF00)
