@@ -56,7 +56,6 @@ class Timers {
 	
 	async weewoo(user) {
 		global.client.timers.stop();
-		let name = user;
 		function weewooo(user) {
 			for (var i = 0; i <= 5; i++) {
 				global.client.channels.get('533359760989487164').send('@everyone');
@@ -68,7 +67,7 @@ class Timers {
 			.setTimestamp()
 			global.client.channels.get('533359760989487164').send(embed);
 		};
-		global.weewoo = setInterval(weewooo(name), 30000);
+		global.weewoo = setInterval(weewooo, 30000);
 		global.client.user.setStatus('dnd');
 		global.client.user.setPresence({ game: { name: 'Wee Woo!', type: 0 } });
 	}
