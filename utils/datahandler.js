@@ -29,7 +29,6 @@ class dataHandler {
 		let member = await exiled.find({userid: userid}).toArray();
 		if (member[0] === undefined) {
 			exiled.insertOne({user: user, userid: userid, points: 1});
-			return 1;
 		}
 		else {
 			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: member[0].points + 1}});
@@ -38,6 +37,7 @@ class dataHandler {
 	async getPoints(userid) {
 		let exiled = this.db.collection("factionPoints");
 		let member = await exiled.find({userid: userid}).toArray();
+		if (member[0] === undefined) return 1;
 		return member[0].points;
 	}
 	async getLB(page) {
