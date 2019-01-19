@@ -14,7 +14,7 @@ module.exports = class PingCommand extends Command {
 		global.client.user.setStatus('online');
 		global.client.user.setPresence({ game: { name: 'Wall service paused!', type: 0 } });
 		global.client.timers.stop();
-		global.pasued = true;
+		global.paused = true;
 		msg.channel.send('Wall service paused!');
 	}
 };
