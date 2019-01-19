@@ -42,7 +42,7 @@ class Timers {
 				var tag = '@here'
 			}
 			global.client.user.setStatus('idle');
-			global.client.user.setPresence({ game: { name: 'Check walls.', type: 0 } });
+			global.client.user.setPresence({ game: { name: 'Check walls!', type: 0 } });
 			global.client.channels.get('533359760989487164').send(tag);
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFFFF00)
