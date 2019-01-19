@@ -29,7 +29,5 @@ module.exports = class PingCommand extends Command {
 		.addField('Insentive:', insentive, true)
 		.setTimestamp()
 		msg.channel.send(embed);
-		global.client.user.setStatus('online');
-		global.client.user.setPresence({ game: { name: 'The walls are safe.', type: 0 } });	
 	}
 };
