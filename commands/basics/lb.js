@@ -11,8 +11,11 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		let tag = msg.author.tag;
-		console.log((await global.client.datahandler.getLB())[0]);
-		msg.channel.send((await global.client.datahandler.getLB())[0]);
+		let embed = new Discord.RichEmbed()
+		.setColor(0x00FF00)
+		.setTitle('Leaderboard')
+		.addField('Top 10:', await global.client.datahandler.getLB()[0], true)
+		.setTimestamp()
+		msg.channel.send(embed).then(function (message) {message.react('◀', '▶')});;
 	}
 };
