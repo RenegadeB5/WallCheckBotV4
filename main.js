@@ -29,6 +29,11 @@ client.on("ready", async () => {
 	// Attach to global object
 	global.services = services;
 	global.utils = utils;
+	global.password = process.env.dbpassword;
+	global.client = client;
+	global.minutes = 0;
+	global.cooldown = false;
+	global.paused = false;
 	log("Global variables initialized.");
 	// Register commands, groups and types
 	client.registry.registerDefaultTypes();
@@ -63,8 +68,3 @@ client.on("ready", async () => {
 });
 
 client.login(process.env.BOT_TOKEN);
-global.password = process.env.dbpassword;
-global.client = client;
-global.minutes = 0;
-global.cooldown = false;
-global.paused = false;
