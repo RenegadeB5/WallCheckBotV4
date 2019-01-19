@@ -44,12 +44,13 @@ class dataHandler {
 		let lb = '';
 		let lbdata = await exiled.find().sort({points: -1}).toArray();
 		let pages = await Math.floor(lbdata.length / 100 % 10 * 10 + 1);
+		let limit = 0;
 		if (page === pages) {
-			let limit = pages.length + (pages * 10) - 1;
+			limit = pages.length + (pages * 10) - 1;
 			console.log(limit);
 		}
 		else {
-			let limit = page * 10;
+			limit = page * 10;
 			console.log(limit);
 		}
 		for (var i = page * 10; i >= limit; i++) {
