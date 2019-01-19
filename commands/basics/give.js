@@ -11,7 +11,7 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		let args = msg.content.split(" ");
+		let args = msg.content.split(" ").slice(0);
 		console.log(args[2]);
 		console.log(args[1]);
 		global.client.datahandler.addPoint(msg.mentions.users.first().tag, msg.mentions.users.first().id, parseInt(args[2]));
