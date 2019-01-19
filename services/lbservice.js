@@ -5,8 +5,8 @@ module.exports = {
 	type: "event",
 	on: {
 		messageReactionAdd: async function (reaction) {
-			if (reaction.users.map(r => r.id).slice(-1)[0] === '407593823921766410') return;		
-			if(reaction.emoji.name === '▶' && reaction.message.author.id === '407593823921766410') {
+			if (reaction.users.map(r => r.id).slice(-1)[0] === '373140966653034506') return;		
+			if(reaction.emoji.name === '▶' && reaction.message.author.id === '373140966653034506') {
 				if (((reaction.message.embeds[0].title).split(' ')[2]) === (reaction.message.embeds[0].title).split(' ')[4]) return;
 				let lb = await global.client.datahandler.getLB(parseInt((reaction.message.embeds[0].title).split(' ')[2]) + 1);
 				let embed = new Discord.RichEmbed()
@@ -17,7 +17,7 @@ module.exports = {
 				.setTimestamp()
 				reaction.message.edit(embed);
 			}
-			if(reaction.emoji.name === '◀' && reaction.message.author.id === '407593823921766410') {
+			if(reaction.emoji.name === '◀' && reaction.message.author.id === '373140966653034506') {
 				if ((reaction.message.embeds[0].title).split(' ')[2] === '1') return;
 				let lb = await global.client.datahandler.getLB(parseInt((reaction.message.embeds[0].title).split(' ')[2]) - 1);
 				let embed = new Discord.RichEmbed()
