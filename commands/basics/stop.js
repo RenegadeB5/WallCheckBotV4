@@ -11,7 +11,7 @@ module.exports = class PingCommand extends Command {
 	}
 	
 	async run(msg) {
-		if (msg.member.roles.has(msg.guild.roles.get('536225066535616513').id)) {
+		if (msg.member.roles.has(msg.guild.roles.find("name", "permissions").id)) {
 			global.client.user.setStatus('online');
 			global.client.user.setPresence({ game: { name: 'Wall service paused!', type: 0 } });
 			global.client.timers.stop();
