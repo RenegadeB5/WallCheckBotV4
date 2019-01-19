@@ -15,7 +15,7 @@ module.exports = class PingCommand extends Command {
 		.setColor(0x00FF00)
 		.setTitle('Leaderboard')
 		.addField('Top 10:', (await global.client.datahandler.getLB())[0], true)
-		.setFooter('Showing page ' (await global.client.datahandler.getLB())[2] 'of ' + (await global.client.datahandler.getLB())[1])
+		.setFooter('Showing page ' + (await global.client.datahandler.getLB())[1] ' of ' + (await global.client.datahandler.getLB())[2])
 		.setTimestamp()
 		msg.channel.send(embed).then(function (message) {message.react('◀'), setTimeout(function () {message.react('▶')}, 1000)});;
 	}
