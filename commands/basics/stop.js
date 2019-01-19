@@ -5,11 +5,13 @@ module.exports = class PingCommand extends Command {
 			name: "points",
 			description: "Gets a user's points.",
 			group: "basics",
-			memberName: "points"
+			memberName: "points",
+			clientPermissions: ['ADMINISTRATOR']
 		});
 	}
 	
 	async run(msg) {
-		msg.channel.send('You have ' + await global.client.datahandler.getPoints(msg.author.id) + ' points!');
+		global.client.timers.stop();
+		msg.channel.send('Wall service stopped!');
 	}
 };
