@@ -18,7 +18,7 @@ module.exports = {
 				reaction.message.edit(embed);
 			}
 			if(reaction.emoji.name === '◀' && reaction.message.author.id === '407593823921766410') {
-				if ((reaction.message.embeds[0].title).split(' ')[2] === (reaction.message.embeds[0].title).split(' ')[4]) return;
+				if ((reaction.message.embeds[0].title).split(' ')[2] === '1') return;
 				let lb = await global.client.datahandler.getLB(parseInt((reaction.message.embeds[0].title).split(' ')[2]) - 1);
 				let embed = new Discord.RichEmbed()
 				.setColor(0x00FFFF)
