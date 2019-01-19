@@ -18,6 +18,6 @@ module.exports = class PingCommand extends Command {
 		.addField('Member: Points', lb[0], true)
 		.setFooter('Insentive text goes here.')
 		.setTimestamp()
-		msg.channel.send(embed).then(function (message) {message.react('◀'), setTimeout(function () {message.react('▶')}, 1000)});;
+		msg.channel.send(embed).then(function (message) {message.react('◀'), setTimeout(function () {message.react('▶')}, 1000)});
 	}
 };
