@@ -19,7 +19,7 @@ class Timers {
 	}
 	
 	async start() {
-		global.client.channels.get('536264092248178688').setName('✔️ Walls are clear!')
+		global.client.channels.get('536264092248178688').setName('✔️ Walls are clear!');
 		global.cooldown = true;
 		global.minutes = 0;
 		global.counter = setInterval(global.client.timers.counter, 60000);
@@ -65,6 +65,7 @@ class Timers {
 		};
 		weewooo();
 		global.raid = setInterval(() => weewooo(), 6000);
+		global.client.channels.get('536264092248178688').setName('🚨 WEE WOO');
 	}
 }
 
