@@ -1,9 +1,9 @@
 var { Command } = require("discord.js-commando");
-module.exports = class PingCommand extends Command {
+module.exports = class PointsCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "points",
-			description: "Gets a user's points.",
+			description: "Retrieves the user's points.",
 			group: "basics",
 			memberName: "points"
 		});
