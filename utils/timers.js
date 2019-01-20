@@ -33,7 +33,7 @@ class Timers {
 	}
     
 	async notify() {  
-		if (global.minutes >= 2) {
+		if (global.minutes >= 5) {
 			global.cooldown = false;
 			if (global.minutes >= 10) {
 				var tag = '@everyone'
