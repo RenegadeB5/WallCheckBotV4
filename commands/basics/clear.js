@@ -29,6 +29,6 @@ module.exports = class PingCommand extends Command {
 		.addField('Cleared by:', tag, true)
 		.addField('Insentive:', insentive, true)
 		.setTimestamp()
-		msg.channel.send(embed);
+		setTimeout(function () {msg.channel.send(embed)}, 100);
 	}
 };
