@@ -13,7 +13,7 @@ module.exports = {
 				.setColor(0x00FFFF)
 				.setTitle('Leaderboard: Page ' + (parseInt((reaction.message.embeds[0].title).split(' ')[2]) + 1) + ' of ' + lb[1])
 				.addField('Member: Points', lb[0], true)
-				.setFooter('Insentive text goes here.')
+				.setFooter('\"Top checkers get paypal!\" - Jaimo')
 				.setTimestamp()
 				reaction.message.edit(embed);
 			}
@@ -24,7 +24,7 @@ module.exports = {
 				.setColor(0x00FFFF)
 				.setTitle('Leaderboard: Page ' + (parseInt((reaction.message.embeds[0].title).split(' ')[2]) - 1) + ' of ' + lb[1])
 				.addField('Member: Points', lb[0], true)
-				.setFooter('Insentive text goes here.')
+				.setFooter('\"Top checkers get paypal!\" - Jaimo')
 				.setTimestamp()
 				reaction.message.edit(embed);
 			}
