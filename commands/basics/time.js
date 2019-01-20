@@ -18,6 +18,6 @@ module.exports = class TimeCommand extends Command {
 		.addField('The walls were last checked by:', global.lastChecker)
 		.setFooter('\"Top checkers get paypal!\" - Jaimo')
 		.setTimestamp()
-		msg.channel.send('The walls haven\'t been checked in ' + global.minutes + ' minutes!');
+		msg.channel.send(embed);
 	}
 };
