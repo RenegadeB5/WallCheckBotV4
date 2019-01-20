@@ -11,13 +11,6 @@ module.exports = class TimeCommand extends Command {
 	}
 	
 	async run(msg) {
-		let lb = await global.client.datahandler.getLB(1);
-		let embed = new Discord.RichEmbed()
-		.setColor(0x00FFFF)
-		.setTitle('Leaderboard: Page 1 of ' + lb[1])
-		.addField('Member: Points', lb[0], true)
-		.setFooter('\"Top checkers get paypal!\" - Jaimo')
-		.setTimestamp()
-		msg.channel.send(embed).then(function (message) {message.react('◀'), setTimeout(function () {message.react('▶')}, 1000)});
+		msg.channel.send('The walls haven\'t been checked in ' + global.minutes + ' minutes!');
 	}
 };
