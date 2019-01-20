@@ -26,8 +26,8 @@ module.exports = class ClearCommand extends Command {
 		let embed = new Discord.RichEmbed()
 		.setColor(0x00FF00)
 		.setTitle('Walls Cleared!')
-		.addField('Cleared by:', tag, true)
-		.addField('Insentive:', insentive, true)
+		.addField('Cleared by:', tag)
+		.addField('Insentive:', insentive)
 		.setFooter('\"Top checkers get paypal!\" - Jaimo')
 		.setTimestamp()
 		setTimeout(function () {msg.channel.send(embed)}, 100);
