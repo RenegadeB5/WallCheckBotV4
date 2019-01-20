@@ -28,6 +28,7 @@ module.exports = class ClearCommand extends Command {
 		.setTitle('Walls Cleared!')
 		.addField('Cleared by:', tag, true)
 		.addField('Insentive:', insentive, true)
+		.setFooter('\"Top checkers get paypal!\" - Jaimo')
 		.setTimestamp()
 		setTimeout(function () {msg.channel.send(embed)}, 100);
 	}
