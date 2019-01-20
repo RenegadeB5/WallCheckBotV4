@@ -46,7 +46,7 @@ class Timers {
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFFFF00)
 			.setTitle('Check Walls!')
-			.addField('The walls haven\'t been checked in:', global.minutes + ' minutes!', true)
+			.addField('The walls haven\'t been checked in:', global.minutes + ' minutes!')
 			.setTimestamp()
 			global.client.channels.get('533359760989487164').send(embed);
 		}  
@@ -59,7 +59,7 @@ class Timers {
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFF0000)
 			.setTitle('Wee Woo!')
-			.addField('Triggered by:', user, true)
+			.addField('Triggered by:', user)
 			.setTimestamp()
 			global.client.channels.get('533359760989487164').send(embed);
 		};
