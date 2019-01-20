@@ -19,9 +19,9 @@ class Timers {
 	}
 	
 	async start() {
+		global.minutes = 0;
 		global.client.channels.get('536264092248178688').setName('✔️ Walls are clear!');
 		global.cooldown = true;
-		global.minutes = 0;
 		global.counter = setInterval(global.client.timers.counter, 60000);
 		global.notify = setInterval(global.client.timers.notify, 60000);
 	}
