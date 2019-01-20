@@ -22,6 +22,7 @@ module.exports = class ClearCommand extends Command {
 			setTimeout(function () {global.client.datahandler.addPoint(tag, msg.author.id, 1)}, 1000);
 		}
 		global.client.timers.stop();
+		global.lastChecker = tag;
 		setTimeout(function () {global.client.timers.start()}, 100);
 		let embed = new Discord.RichEmbed()
 		.setColor(0x00FF00)
