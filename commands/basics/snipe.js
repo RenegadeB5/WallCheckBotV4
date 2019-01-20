@@ -16,7 +16,7 @@ module.exports = class SnipeCommand extends Command {
 		let embed = new Discord.RichEmbed()
 		.setColor(0x0000FF)
 		.setTitle('Message sniped!')
-		.addField(snipe[0] + ':', snipe[1], true)
+		.addField(snipe[0] + ':', snipe[1])
 		.setTimestamp()
 		msg.channel.send(embed);
 	}
