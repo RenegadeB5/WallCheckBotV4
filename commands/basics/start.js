@@ -13,7 +13,7 @@ module.exports = class StartCommand extends Command {
 	async run(msg) {
 		global.client.timers.stop();
 		setTimeout(function () {global.client.timers.start()}, 1000);
-		global.pasued = false;
+		global.paused = false;
 		msg.channel.send('Wall service initialized!');
 		global.client.user.setStatus('online');
 		global.client.user.setPresence({ game: { name: 'Wall service initialized!', type: 0 } });
