@@ -1,6 +1,6 @@
 var { Command } = require("discord.js-commando");
 const Discord = require('discord.js');
-module.exports = class PingCommand extends Command {
+module.exports = class InfoCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "info",
