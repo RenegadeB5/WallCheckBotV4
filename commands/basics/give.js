@@ -12,7 +12,7 @@ module.exports = class GiveCommand extends Command {
 	
 	async run(msg) {
 		let args = msg.content.split(" ");
-		if (args[2].length === 0) return;
+		if (!args[2]) return;
 		global.client.datahandler.addPoint(msg.mentions.users.first().tag, msg.mentions.users.first().id, parseInt(args[2]));
 		msg.channel.send('Successfully gave ' + msg.mentions.users.first().tag + ' ' + args[2] + ' point(s)!');
 	}
