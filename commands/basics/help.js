@@ -3,10 +3,10 @@ const Discord = require('discord.js');
 module.exports = class HelpCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "Help",
+			name: "help",
 			description: "Displays all commands.",
 			group: "basics",
-			memberName: "snipe"
+			memberName: "help"
 		});
 	}
 	
