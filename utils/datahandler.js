@@ -1,4 +1,6 @@
-const { MongoClient } = require("mongodb");
+const MongoClient = require("mongodb");
+const app = require('express')();
+const http = require('http').Server(app);
 
 class dataHandler {
 	constructor(host = 27017, databaseName = "factions") {
