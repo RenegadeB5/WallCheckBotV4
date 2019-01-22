@@ -11,6 +11,10 @@ class dataHandler {
 		this._databaseName = databaseName;
 		this.client = new MongoClient(this._host, { useNewUrlParser: true });
 		this.initialized = false;
+		http.listen(3000, function(){
+			console.log('listening on *:3000');
+		});
+
 	}
 
 	async initialize() {
