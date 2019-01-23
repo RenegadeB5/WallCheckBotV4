@@ -42,7 +42,7 @@ client.on("ready", async () => {
 	client.registry.registerCommandsIn(path.join(__dirname, "commands"));
 	log("Commands initialized.");
 	client.user.setStatus('online');
-	client.user.setPresence({ game: { name: 'Wall service initialized!', type: 0 } });
+	client.user.setPresence({ game: { name: 'with no comp :/', type: 0 } });
 	client.timers.start();
 })
 .on("commandError", (cmd, err) => {
