@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 class Timers {
 	
 	constructor() {
-		this.checkwall = global.client.channels.get('533359760989487164');
+		this.checkwall = global.client.channels.get('528307983856173062');
        		this.initialized = false;
 	}
 	
@@ -20,7 +20,7 @@ class Timers {
 	
 	async start() {
 		global.minutes = 0;
-		global.client.channels.get('536264092248178688').setName('✔️ Walls are clear!');
+		global.client.channels.get('528307983856173062').setName('wall-check - Check walls!');
 		global.cooldown = true;
 		global.counter = setInterval(global.client.timers.counter, 60000);
 		global.notify = setInterval(global.client.timers.notify, 60000);
@@ -41,31 +41,31 @@ class Timers {
 			else {
 				var tag = '@here'
 			}
-			global.client.channels.get('536264092248178688').setName('❗' + global.minutes + ' mins! Check walls!');
-			global.client.channels.get('533359760989487164').send(tag);
+			global.client.channels.get('528307983856173062').setName('wall-check - Walls are clear!');
+			global.client.channels.get('528307983856173062').send(tag);
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFFFF00)
 			.setTitle('Check Walls!')
 			.addField('The walls haven\'t been checked in:', global.minutes + ' minutes!')
 			.setTimestamp()
-			global.client.channels.get('533359760989487164').send(embed);
+			global.client.channels.get('528307983856173062').send(embed);
 		}  
 	}
 	
 	async weewoo(user) {
 		global.client.timers.stop;
 		function weewooo() {
-			global.client.channels.get('533359760989487164').send('@everyone');
+			global.client.channels.get('528307983856173062').send('@everyone');
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFF0000)
 			.setTitle('Wee Woo!')
 			.addField('Triggered by:', user)
 			.setTimestamp()
-			global.client.channels.get('533359760989487164').send(embed);
+			global.client.channels.get('528307983856173062').send(embed);
 		};
 		weewooo();
 		global.raid = setInterval(() => weewooo(), 6000);
-		global.client.channels.get('536264092248178688').setName('🚨 WEE WOO');
+		global.client.channels.get('528307983856173062').setName('wall-check - WEE WOO!');
 	}
 }
 
