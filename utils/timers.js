@@ -20,7 +20,7 @@ class Timers {
 	
 	async start() {
 		global.minutes = 0;
-		global.client.channels.get('528307983856173062').setName('wall-check ' + ' - ' + ' Check walls!');
+		global.client.channels.get('528307983856173062').setName('wall-check ' + ' : ' + ' Walls are clear!');
 		global.cooldown = true;
 		global.counter = setInterval(global.client.timers.counter, 60000);
 		global.notify = setInterval(global.client.timers.notify, 60000);
@@ -41,7 +41,7 @@ class Timers {
 			else {
 				var tag = '@here'
 			}
-			global.client.channels.get('528307983856173062').setName('wall-check ' + ' - ' + ' Walls are clear!');
+			global.client.channels.get('528307983856173062').setName('wall-check ' + ' : ' + ' Check walls!');
 			global.client.channels.get('528307983856173062').send(tag);
 			let embed = new Discord.RichEmbed()
 			.setColor(0xFFFF00)
@@ -65,7 +65,7 @@ class Timers {
 		};
 		weewooo();
 		global.raid = setInterval(() => weewooo(), 6000);
-		global.client.channels.get('528307983856173062').setName('wall-check ' + ' - ' + ' WEE WOO!');
+		global.client.channels.get('528307983856173062').setName('wall-check ' + ' : ' + ' WEE WOO!');
 	}
 }
 
