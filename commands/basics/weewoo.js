@@ -12,6 +12,7 @@ module.exports = class WeewooCommand extends Command {
 	
 	async run(msg) {
 		if (global.paused === true) return;
+		global.client.timers.stop();
 		global.client.timers.weewoo(msg.author.tag);
 	}
 };
