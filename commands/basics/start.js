@@ -14,8 +14,8 @@ module.exports = class StartCommand extends Command {
 		global.client.timers.stop();
 		setTimeout(function () {global.client.timers.start()}, 1000);
 		global.paused = false;
-		msg.channel.send('with no comp');
+		msg.channel.send('Wall service initialized!');
 		global.client.user.setStatus('online');
-		global.client.user.setPresence({ game: { name: 'Wall service initialized!', type: 0 } });
+		global.client.user.setPresence({ game: { name: 'with no comp', type: 0 } });
 	}
 };
