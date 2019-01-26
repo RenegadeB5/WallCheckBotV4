@@ -14,7 +14,7 @@ module.exports = class TimeCommand extends Command {
 		let embed = new Discord.RichEmbed()
 		.setColor(0xFF00FF)
 		.setTitle('Walls Info!')
-		.addField('The walls haven\'t been checked in:', global.minutes)
+		.addField('The walls haven\'t been checked in:', global.minutes + ' minutes!')
 		.addField('The walls were last checked by:', global.lastChecker)
 		.setFooter('\"Top checkers get paypal!\" - Jaimo')
 		.setTimestamp()
