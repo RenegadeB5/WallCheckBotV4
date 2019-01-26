@@ -53,7 +53,6 @@ class Timers {
 	}
 	
 	async weewoo(user) {
-		global.client.channels.get('528307983856173062').send('@everyone');
 		let embed = new Discord.RichEmbed()
 		.setColor(0xFF0000)
 		.setTitle('Wee Woo!')
@@ -61,6 +60,7 @@ class Timers {
 		.setTimestamp()
 		let alert = embed;
 		function weewooo() {
+			global.client.channels.get('528307983856173062').send('@everyone');
 			global.client.channels.get('528307983856173062').send(alert);
 		};
 		weewooo();
