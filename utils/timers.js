@@ -53,15 +53,15 @@ class Timers {
 	}
 	
 	async weewoo(user) {
-		global.client.timers.stop;
+		global.client.channels.get('528307983856173062').send('@everyone');
+		let embed = new Discord.RichEmbed()
+		.setColor(0xFF0000)
+		.setTitle('Wee Woo!')
+		.addField('Triggered by:', user)
+		.setTimestamp()
+		let alert = embed;
 		function weewooo() {
-			global.client.channels.get('528307983856173062').send('@everyone');
-			let embed = new Discord.RichEmbed()
-			.setColor(0xFF0000)
-			.setTitle('Wee Woo!')
-			.addField('Triggered by:', user)
-			.setTimestamp()
-			global.client.channels.get('528307983856173062').send(embed);
+			global.client.channels.get('528307983856173062').send(alert);
 		};
 		weewooo();
 		global.raid = setInterval(() => weewooo(), 6000);
