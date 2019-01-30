@@ -30,7 +30,7 @@ module.exports = class ClearCommand extends Command {
 		.setColor(0x00FF00)
 		.setTitle('Walls Cleared!')
 		.addField('Cleared by:', tag)
-		.addField('Insentive:', insentive)
+		.addField('Incentive:', insentive)
 		.setFooter('\"Top checkers get paypal!\" - Jaimo')
 		.setTimestamp()
 		setTimeout(function () {msg.channel.send(embed)}, 100);
