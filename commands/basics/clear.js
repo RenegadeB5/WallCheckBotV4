@@ -11,6 +11,8 @@ module.exports = class ClearCommand extends Command {
 	}
 	
 	async run(msg) {
+		if (msg.guild === null) return;
+		if (msg.channel.id === '538282240363200512') return;
 		if (global.paused === true) return;
 		let tag = msg.author.tag;
 		let insentive;
