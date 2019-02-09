@@ -14,6 +14,14 @@ const client = new commando.Client({
 	commandPrefix: "."
 });
 
+const bot = mineflayer.createBot({
+	host: process.env.server,
+	port: 25565,
+	username: process.env.username,
+	password: process.env.password,
+	verbose: true
+});
+
 client.on("ready", async () => {
 	log(`Logged in as ${client.user.tag} (${client.user.id})`);
 	client.user.setActivity("with sapphires!");
@@ -22,11 +30,8 @@ client.on("ready", async () => {
 	await client.datahandler.initialize();
 	client.timers = new utils.timers();
 	await client.timers.initialize();
-	client.mcapi = new utils.mcapi();
-	await client.mcapi.initialize();
-	log("Datahandler Initialized.");
+	log('Datahandler Initialized.');
 	log('Timers Initialized');
-	log('MC api Initialized');
 	// Initialize services
 	await initializeServices(client);
 	log("Services initialized.");
@@ -69,6 +74,7 @@ client.on("ready", async () => {
 
 client.login(process.env.BOT_TOKEN);
 global.client = client;
+global.bot = bot;
 global.minutes = 0;
 global.cooldown = false;
 global.paused = false;
