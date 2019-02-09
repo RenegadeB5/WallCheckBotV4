@@ -8,6 +8,8 @@ const bot = mineflayer.createBot({
 	verbose: true
 });
 
+bot.chat('/queue mars');
+
 bot.on("message", function(message) {
 	var msg = message.toString();
 	if (msg.includes('-> me')) {
