@@ -8,7 +8,10 @@ const bot = mineflayer.createBot({
 	verbose: true
 });
 
-bot.chat('/queue mars');
+ bot.once('login', function() {
+	 setTimeout(function() {
+		 bot.chat('/queue mars');
+	 }, 3100);
 
 bot.on("message", function(message) {
 	var msg = message.toString();
