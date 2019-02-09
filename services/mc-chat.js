@@ -9,6 +9,7 @@ const bot = mineflayer.createBot({
 });
 
 bot.on('chat', (username, message) => {
+	console.log(username + ' : ' + message);
 	if (username === bot.username) return;
 	bot.chat(message);
 });
