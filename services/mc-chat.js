@@ -9,7 +9,7 @@ const bot = mineflayer.createBot({
 })
 
 bot.on("message", function(msg) {
-	if (msg.includes('-> me')) {
+	if (msg.toString().includes('-> me')) {
 		console.log(msg.toString());
 	}
 });
