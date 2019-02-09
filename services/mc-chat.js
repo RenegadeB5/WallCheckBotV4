@@ -1,4 +1,4 @@
-bot.on("message", function(message) {
+global.bot.on("message", function(message) {
 	var msg = message.toString();
 	if (msg.includes('-> me')) {
 		console.log(msg);
