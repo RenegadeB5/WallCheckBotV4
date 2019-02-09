@@ -11,8 +11,9 @@ const bot = mineflayer.createBot({
 bot.on("message", function(msg) {
 	if (msg.toString().includes('-> me')) {
 		console.log(msg.toString());
+		console.log(msg.toString()[1, msg.toString().indexOf('-> me') - 1]);
 	}
 	else {
-		client.channels.get('543650298410041344').send('```' + msg.toString() + '```');
+		client.channels.get('543650298410041344').send('``' + msg.toString() + '``');
 	}
 });
