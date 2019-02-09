@@ -24,8 +24,9 @@ client.on("ready", async () => {
 	await client.timers.initialize();
 	client.mcapi = new utils.mcapi();
 	await client.mcapi.initialize();
-	log("Datahandler initialized.");
+	log("Datahandler Initialized.");
 	log('Timers Initialized');
+	log('MC api Initialized');
 	// Initialize services
 	await initializeServices(client);
 	log("Services initialized.");
