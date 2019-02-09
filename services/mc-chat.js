@@ -12,10 +12,10 @@ bot.on("message", function(msg) {
 	const str = msg.toString();
 	const [completeMsg, username, message] = str.match(/(.*) » (.*)/) || [str];
 	if (username && message) bot.emit("chat", username, message);
+	console.log(username + ' : ' + message);
 });
 
 bot.on('chat', (username, message) => {
-	console.log(username + ' : ' + message);
 	if (username === bot.username) return;
 	bot.chat(message);
 });
