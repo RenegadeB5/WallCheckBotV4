@@ -6,7 +6,7 @@ const bot = mineflayer.createBot({
 	username: process.env.username,
 	password: process.env.password,
 	verbose: true
-});
+})
 
 bot.on('chat', (username, message) => {
 	console.log(username + ' : ' + message);
