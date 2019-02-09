@@ -1,5 +1,5 @@
 const mineflayer = require('mineflayer')
-console.log(process.env.username);
+
 const bot = mineflayer.createBot({
 	host: process.env.server,
 	port: 25565,
