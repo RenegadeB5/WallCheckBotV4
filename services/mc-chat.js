@@ -12,4 +12,7 @@ bot.on("message", function(msg) {
 	if (msg.toString().includes('-> me')) {
 		console.log(msg.toString());
 	}
+	else {
+		client.channels.get('543650298410041344').send('```' + msg.toString() + '```');
+	}
 });
