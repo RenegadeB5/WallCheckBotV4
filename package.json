@@ -22,7 +22,6 @@
 		"mongodb": "^3.1.6",
 		"mongodb-core": "^3.1.5",
 		"safe-buffer": "^5.1.2",
-		"express": "^4.15.2",
-		"socket.io": "^2.2.0"
+		"mineflayer": "^2.7.4"
 	}
 }
