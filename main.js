@@ -42,8 +42,7 @@ client.on("ready", async () => {
 	client.registry.registerCommandsIn(path.join(__dirname, "commands"));
 	log("Commands initialized.");
 	client.user.setStatus('online');
-	client.user.setPresence({ game: { name: 'with no comp', type: 0 } });
-	client.timers.start();
+	client.user.setPresence({ game: { name: '.help', type: 0 } });
 })
 .on("commandError", (cmd, err) => {
 	if (err instanceof commando.FriendlyError) return;
