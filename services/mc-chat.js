@@ -1,5 +1,3 @@
-const bot = global.bot;
-
 bot.on("message", function(message) {
 	var msg = message.toString();
 	if (msg.includes('-> me')) {
