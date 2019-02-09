@@ -37,4 +37,4 @@ class mcapi {
 	
 }
 
-module.exports = MCAPI;
+module.exports = mcapi;
