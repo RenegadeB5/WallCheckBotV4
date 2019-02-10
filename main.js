@@ -67,4 +67,4 @@ client.login(process.env.BOT_TOKEN);
 global.client = client;
 global.minutes = 0;
 global.cooldown = false;
-global.paused = false;
+global.paused = true;
