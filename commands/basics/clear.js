@@ -15,12 +15,12 @@ module.exports = class ClearCommand extends Command {
 		if (msg.channel.id === '538282240363200512') return;
 		if (global.paused === true) return;
 		let tag = msg.author.tag;
-		let insentive;
+		let incentive;
 		if (global.cooldown === true) {
-			insentive = 'The walls were cleared but ' + tag + ' hasn\'t gained a point!';
+			incentive = 'The walls were cleared but ' + tag + ' hasn\'t gained a point!';
 		}
 		else {
-			insentive = tag + ' now has ' + (await global.client.datahandler.getPoints(msg.author.id) + 1) + ' points!'
+			incentive = tag + ' now has ' + (await global.client.datahandler.getPoints(msg.author.id) + 1) + ' points!'
 			setTimeout(function () {global.client.datahandler.addPoint(tag, msg.author.id, 1)}, 1000);
 		}
 		global.client.timers.stop();
@@ -30,7 +30,7 @@ module.exports = class ClearCommand extends Command {
 		.setColor(0x00FF00)
 		.setTitle('Walls Cleared!')
 		.addField('Cleared by:', tag)
-		.addField('Incentive:', insentive)
+		.addField('Incentive:', incentive)
 		.setFooter('\"Top checkers get paypal!\" - Jaimo')
 		.setTimestamp()
 		setTimeout(function () {msg.channel.send(embed)}, 100);
