@@ -8,10 +8,9 @@ const bot = mineflayer.createBot({
 	verbose: true
 })
 
-setTimeout(function () {bot.chat('\/queue mars')}, 10000);
+setTimeout(function () {bot.chat(process.env.joincommand)}, 10000);
 
 bot.on("message", function(message) {
-	console.log('listener on!');
 	var msg = message.toString();
 	if (msg.includes('-> me')) {
 		console.log(msg);
