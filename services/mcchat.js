@@ -6,7 +6,7 @@ const bot = mineflayer.createBot({
 	username: process.env.username,
 	password: process.env.password,
 	verbose: true
-});
+})
 
 setTimeout(function () {bot.chat('/queue mars')}, 3000);
 
