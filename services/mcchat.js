@@ -5,6 +5,7 @@ const bot = mineflayer.createBot({
 	port: 25565,
 	username: process.env.username,
 	password: process.env.password,
+	version: '1.8.9',
 	verbose: true
 })
 
