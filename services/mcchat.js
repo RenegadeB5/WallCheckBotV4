@@ -5,10 +5,11 @@ const bot = mineflayer.createBot({
 	port: 25565,
 	username: process.env.username,
 	password: process.env.password,
+	version: '1.8.9',
 	verbose: true
 })
 
-setTimeout(function () {bot.chat('/queue mars')}, 3000);
+setTimeout(function () {bot.chat('\/queue mars')}, 10000);
 
 bot.on("message", function(message) {
 	var msg = message.toString();
