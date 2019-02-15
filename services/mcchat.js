@@ -17,5 +17,5 @@ setTimeout(function () {
 		}
 	})
 	setTimeout(function () {bot.setControlState('forward', true)}, 3000);
-	setTimeout(fucntion () {bot.clearControlStates()}, 5000);
+	setTimeout(function () {bot.clearControlStates()}, 5000);
 }, 10000);
