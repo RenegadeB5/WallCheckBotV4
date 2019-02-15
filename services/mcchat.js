@@ -4,6 +4,7 @@ setTimeout(function () {
 	bot.on("message", function(message) {
 		var msg = message.toString();
 		if (msg.length <= 5) return;
+		if (msg.length >= 200) return;
 		if (msg.includes('➥ me)')) {
 			console.log(msg);
 			var username = msg.slice(8, msg.indexOf('➥ me)') - 1);
