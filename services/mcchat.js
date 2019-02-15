@@ -3,8 +3,7 @@ setTimeout(function () {
 	bot.chat(process.env.joincommand);
 	bot.on("message", function(message) {
 		var msg = message.toString();
-		if (msg.length <= 5) return;
-		if (msg.length >= 200) return;
+		if (msg.length <= 5 || msg.length >= 200 || msg.includes('@everyone') || msg.includes('@here') || msg.includes('<@')) return;
 		if (msg.includes('➥ me)')) {
 			console.log(msg);
 			var username = msg.slice(8, msg.indexOf('➥ me)') - 1);
@@ -14,6 +13,7 @@ setTimeout(function () {
 			}
 		}	
 		else {
+			if
 			client.channels.get('543650298410041344').send(msg);
 		}
 	})
