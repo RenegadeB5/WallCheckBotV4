@@ -6,14 +6,16 @@ const log = require("fancy-log");
 const utils = require("./utils");
 const mineflayer = require('mineflayer');
 
-const bot = mineflayer.createBot({
-	host: process.env.server,
-	port: 25565,
-	username: process.env.username,
-	password: process.env.password,
-	version: '1.8.9',
-	verbose: true
-});
+if (process.env.mcchatOn === 'true') {
+	const bot = mineflayer.createBot({
+		host: process.env.server,
+		port: 25565,
+		username: process.env.username,
+		password: process.env.password,
+		version: '1.8.9',
+		verbose: true
+	})
+};
 
 const client = new commando.Client({
 	owner: config.owners,
