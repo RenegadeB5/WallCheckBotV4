@@ -15,6 +15,7 @@ if (process.env.mcchatOn === 'true') {
 		version: '1.8.9',
 		verbose: true
 	})
+	global.bot = bot;
 };
 
 const client = new commando.Client({
@@ -80,4 +81,3 @@ global.client = client;
 global.minutes = 0;
 global.cooldown = false;
 global.paused = true;
-global.bot = bot;
