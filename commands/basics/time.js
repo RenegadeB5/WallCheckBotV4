@@ -12,7 +12,7 @@ module.exports = class TimeCommand extends Command {
 	
 	async run(msg) {
 		if (msg.guild === null) return;
-		if (msg.channel.id === '538282240363200512') return;
+		if (msg.channel.id === '538282240363200512' || '528288807385038859') return;
 		let embed = new Discord.RichEmbed()
 		.setColor(0xFF00FF)
 		.setTitle('Walls Info!')
