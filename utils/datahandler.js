@@ -51,7 +51,7 @@ class dataHandler {
 		let member = await exiled.find({userid: userid}).toArray();
 		let points = 0
 		if (member[0] !== undefined) await points = member[0].points;
-		exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: points}});
+		exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: points, ign: ign}});
 	}
 	
 	async isRegistered(userid) {
