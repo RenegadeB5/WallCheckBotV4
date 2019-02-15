@@ -40,6 +40,12 @@ class dataHandler {
 		if (member[0] === undefined) return 0;
 		return member[0].points;
 	}
+	
+	async addInfo(user, userid, ign) {
+		let exiled = this.db.collection("factionPoints");
+		exiled.insertOne({user: user, userid: userid, ign: ign, points: 0});
+	}
+	
 	async getLB(page) {
 		let exiled = this.db.collection("factionPoints");
 		let lb = '';
