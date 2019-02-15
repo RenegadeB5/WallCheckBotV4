@@ -46,6 +46,22 @@ class dataHandler {
 		exiled.insertOne({user: user, userid: userid, ign: ign, points: 0});
 	}
 	
+	async register(user, userid, ign) {
+		let exiled = this.db.collection("factionPoints");
+		let member = await exiled.find({userid: userid}).toArray();
+		let points = 0
+		if (member[0] !== undefined) await points = member[0].points;
+		exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: points}});
+	}
+	
+	async isRegistered(userid) {
+		let exiled = this.db.collection("factionPoints");
+		let member = await exiled.find({userid: userid}).toArray();
+		if (member[0] === undefined) return 'unregistered';
+		else if (member[0].ign === undefined) return 'noign';
+		else return 'registered';
+	}
+		
 	async getLB(page) {
 		let exiled = this.db.collection("factionPoints");
 		let lb = '';
