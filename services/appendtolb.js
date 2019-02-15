@@ -1,1 +1,0 @@
-setTimeout(function () {client.channels.get('541649827226714113').fetchMessages().then(messages => messages.map(message => client.datahandler.addInfo(message.author.tag, message.author.id, message.content)))}, 3000);
