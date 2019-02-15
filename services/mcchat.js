@@ -1,4 +1,5 @@
 setTimeout(function () {
+	if (process.env.mcchatOn = 'false') return;
 	bot.chat(process.env.joincommand);
 	bot.on("message", function(message) {
 		var msg = message.toString();
