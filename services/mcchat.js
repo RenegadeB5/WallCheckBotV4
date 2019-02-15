@@ -16,4 +16,6 @@ setTimeout(function () {
 			client.channels.get('543650298410041344').send(msg);
 		}
 	})
+	setTimeout(function () {bot.setControlState('forward', true)}, 3000);
+	setTimeout(fucntion () {bot.clearControlStates()}, 5000);
 }, 10000);
