@@ -11,6 +11,8 @@ module.exports = class RegisterCommand extends Command {
 	}
 	
 	async run(msg) {
+		if (msg.guild === null) return;
+		if (msg.channel.id === '538282240363200512' || '528288807385038859') return;
 		let args = msg.content.split(" ");
 		if (!args[1]) return;
 		let registered = await client.datahandler.isRegistered(msg.author.id);
