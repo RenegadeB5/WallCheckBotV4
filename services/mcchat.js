@@ -13,7 +13,6 @@ setTimeout(function () {
 			}
 		}	
 		else {
-			if
 			client.channels.get('543650298410041344').send(msg);
 		}
 	})
