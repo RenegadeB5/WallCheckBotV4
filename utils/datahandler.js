@@ -58,7 +58,7 @@ class dataHandler {
 	async isRegistered(userid) {
 		let exiled = this.db.collection("factionPoints");
 		let member = await exiled.find({userid: userid}).toArray();
-		if (member[0].ign === undefined) {return 'unregistered';}
+		if (member[0] === undefined) {return 'unregistered';}
 		else {return 'registered';}
 	}
 		
