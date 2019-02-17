@@ -6,7 +6,7 @@ setTimeout(function () {
 		if (msg.length <= 5 || msg.length >= 200 || msg.includes('@everyone') || msg.includes('@here') || msg.includes('<@')) return;
 		if (msg.includes('➥ me)')) {
 			console.log(msg);
-			var username = msg.slice(8, msg.indexOf('➥ me)') - 1);
+			var username = msg.slice(9, msg.indexOf('➥ me)') - 1);
 			var command = msg.slice(msg.indexOf('➥ me)') + 6, msg.length);
 			if (command === 'clear') {
 				client.channels.get('528307983856173062').send('The walls have been cleared by ' + username + ' via ingame message!');
