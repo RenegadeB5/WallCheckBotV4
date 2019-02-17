@@ -9,7 +9,7 @@ setTimeout(function () {
 			client.channels.get('543650298410041344').send(msg);
 			var username = msg.slice(9, msg.indexOf('➥ me)') - 1);
 			var command = msg.slice(msg.indexOf('➥ me)') + 6, msg.length);
-			let registered = await client.datahandler.isRegistered(username);
+			var registered = await client.datahandler.isRegistered(username);
 			if (registered === 'unregistered') return;
 			if (command === 'clear') {
 				if (global.paused === true) return;
