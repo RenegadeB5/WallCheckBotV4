@@ -3,18 +3,22 @@ setTimeout(function () {
 	bot.chat(process.env.joincommand);
 	bot.on("message", function(message) {
 		var msg = message.toString();
-		if (msg.length <= 5 || msg.length >= 200 || msg.includes('@everyone') || msg.includes('@here') || msg.includes('<@')) return;
+		if (msg.length <= 5 || msg.length >= 200 || msg.includes('@everyone') || msg.includes('@here') || msg.includes('<@')) return;                                 
 		if (msg.includes('➥ me)')) {
 			console.log(msg);
+			client.channels.get('543650298410041344').send(msg);
 			var username = msg.slice(9, msg.indexOf('➥ me)') - 1);
 			var command = msg.slice(msg.indexOf('➥ me)') + 6, msg.length);
+			let registered = await client.datahandler.isRegistered(username);
+			if (registered === 'unregistered') return;
 			if (command === 'clear') {
+				if (global.paused === true) return;
 				client.channels.get('528307983856173062').send('The walls have been cleared by ' + username + ' via ingame message!');
+				client.timers.stop();
+				setTimeout(function () {client.timers.start()}, 100);
+				if (global.cooldown === false) {client.datahandler.mcaddPoint(username, 1);}
 			}
 		}	
-		else {
-			client.channels.get('543650298410041344').send(msg);
-		}
 	})
 	setTimeout(function () {bot.setControlState('forward', true)}, 7000);
 	setTimeout(function () {bot.setControlState('jump', true)}, 8000);
