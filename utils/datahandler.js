@@ -34,6 +34,14 @@ class dataHandler {
 			exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: member[0].points + points}});
 		}
 	}
+	async mcaddPoint(ign, points) {
+		let exiled = this.db.collection("factionPoints");
+		let member = await exiled.find({ign: ign}).toArray();
+		if (member[0] === undefined) return;
+		else {
+			exiled.updateOne({ign: ign}, {$set:{user: member[0].user, userid: member[0].userid, ign: member[0].ign, points: member[0].points + points}});
+		}
+	}
 	async getPoints(userid) {
 		let exiled = this.db.collection("factionPoints");
 		let member = await exiled.find({userid: userid}).toArray();
@@ -55,9 +63,9 @@ class dataHandler {
 		else {exiled.updateOne({userid: userid}, {$set:{user: user, userid: userid, points: points, ign: ign}});}
 	}
 	
-	async isRegistered(userid) {
+	async isRegistered(ign) {
 		let exiled = this.db.collection("factionPoints");
-		let member = await exiled.find({userid: userid}).toArray();
+		let member = await exiled.find({ign: ign}).toArray();
 		if (member[0] === undefined) {return 'unregistered';}
 		else {return 'registered';}
 	}
