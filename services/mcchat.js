@@ -4,9 +4,9 @@ setTimeout(function () {
 	bot.on("message", async function(message) {
 		var msg = message.toString();
 		if (msg.length <= 5 || msg.length >= 200 || msg.includes('@everyone') || msg.includes('@here') || msg.includes('<@')) return;                                 
+		client.channels.get('543650298410041344').send(msg);
 		if (msg.includes('➥ me)')) {
 			console.log(msg);
-			client.channels.get('543650298410041344').send(msg);
 			var username = msg.slice(9, msg.indexOf('➥ me)') - 1);
 			var command = msg.slice(msg.indexOf('➥ me)') + 6, msg.length);
 			var registered = await client.datahandler.isRegistered(username);
