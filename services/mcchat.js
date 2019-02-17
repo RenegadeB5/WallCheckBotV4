@@ -1,7 +1,7 @@
 setTimeout(function () {
 	if (process.env.mcchatOn === 'false') return;
 	bot.chat(process.env.joincommand);
-	bot.on("message", function(message) {
+	bot.on("message", async function(message) {
 		var msg = message.toString();
 		if (msg.length <= 5 || msg.length >= 200 || msg.includes('@everyone') || msg.includes('@here') || msg.includes('<@')) return;                                 
 		if (msg.includes('➥ me)')) {
