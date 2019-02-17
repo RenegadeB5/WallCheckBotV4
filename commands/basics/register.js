@@ -15,7 +15,7 @@ module.exports = class RegisterCommand extends Command {
 		if (msg.channel.id === '538282240363200512' || msg.channel.id === '528288807385038859') return;
 		let args = msg.content.split(" ");
 		if (!args[1]) return;
-		let registered = await client.datahandler.isRegistered(msg.author.id);
+		let registered = await client.datahandler.isRegistered(args[1]);
 		if (registered === 'registered') {
 			msg.channel.send('You are already registered!');
 		}
